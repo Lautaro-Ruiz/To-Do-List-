@@ -1,0 +1,11 @@
+<section>
+    <div *ngIf="showList">
+        <ul *ngFor="let task of taskList"> 
+            <li>
+                <div>{{task.name}}</div>
+                <div>{{task.description}}</div>
+                <div>{{task.status}}{{task.priority}}</div>
+            </li>
+        </ul>
+    </div>
+</section>
