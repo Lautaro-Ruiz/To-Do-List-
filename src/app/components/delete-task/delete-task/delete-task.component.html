@@ -1,0 +1,9 @@
+<!-- <section id="button-delete-task">
+    <button (click)="showOptions()">🗑</button>
+</section> -->
+
+<section id="section-delete-task" *ngIf="showSectionDeleteTask">
+    <p>Desea eliminar esta tarea?</p>
+    <button (click)="deleteTask()">Confirmar</button>
+    <button (click)="hideOptions()">Cancelar</button>
+</section>

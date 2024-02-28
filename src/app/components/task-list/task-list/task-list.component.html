@@ -1,11 +1,38 @@
 <section>
     <div *ngIf="showList">
-        <ul *ngFor="let task of taskList"> 
-            <li>
-                <div>{{task.name}}</div>
-                <div>{{task.description}}</div>
-                <div>{{task.status}}{{task.priority}}</div>
-            </li>
-        </ul>
+        <div *ngIf="!refreshList">
+            <ul *ngFor="let task of taskList"> 
+                <li>
+                    <div id="name" class="editable">{{ task.name }}</div>
+                    <div id="description" class="editable">{{ task.description }}</div>
+
+                    <div *ngIf="editingTask === task">
+                        <label>Status Actual: {{ task.status }}</label> <br>
+                        <select [(ngModel)]="temporaryStatus" [disabled]="!isEditing">
+                            <option *ngFor="let status of taskStatusOptions" [value]="status"> {{ status }}</option>
+                        </select>
+                    </div>
+                    <div *ngIf="editingTask !== task"> Status: {{ task.status }}</div>
+                    
+                    <div *ngIf="editingTask === task">
+                        <label>Priority Actual: {{ task.priority }}</label> <br>
+                        <select [(ngModel)]="temporaryPriority" [disabled]="!isEditing">
+                            <option *ngFor="let priority of taskPriorityOptions" [value]="priority"> {{ priority }}</option>
+                        </select>
+                    </div>
+                    <div *ngIf="editingTask !== task">Priority: {{ task.priority }}</div>
+
+                    <button (click)="editTask(task)">Editar</button>
+                    <button *ngIf="editingTask === task" (click)="saveChanges(task)">Confirmar</button>
+                    <button *ngIf="editingTask === task" (click)="cancelEdit()">Cancelar</button>
+
+                    <button (click)="deleteTask(task)">Eliminar</button>
+                    <section *ngIf="task.taskId === taskIdToDelete">
+                        <app-delete-task></app-delete-task>
+                    </section>
+                </li>
+            </ul>
+        </div>
     </div>
 </section>
+    

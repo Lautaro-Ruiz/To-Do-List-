@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../models/task';
-import { BehaviorSubject, Observable} from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject} from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -10,6 +10,9 @@ import { catchError } from 'rxjs/operators';
 export class TaskService {
   private tasksSubject: BehaviorSubject<Task[]> = new BehaviorSubject<Task[]>([]);
   tasks$: Observable<Task[]> = this.tasksSubject.asObservable();
+
+  private taskDeleteRequestedSubject: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  taskDeleteRequested$: Observable<number> = this.taskDeleteRequestedSubject.asObservable();
 
   private URL_getAllOrPostTask = "http://localhost:8092/tasks/"
   private URL_getAllTaskByPriority = "http://localhost:8092/tasks/priority"
@@ -38,7 +41,7 @@ export class TaskService {
         throw new Error ('No hay contenido...');
       if (!response.ok)
         throw new Error ('Ha ocurrido un error al cargar las tareas.');
-      const tasks = await response.json();
+      let tasks = await response.json();
       this.tasksSubject.next(tasks);
     }catch (error){
       throw new Error('Ocurrió un error al procesar la solicitud GET' + error);
@@ -81,7 +84,7 @@ export class TaskService {
     }
   }
 
-  async addTask (task:Task){
+  async addTask (task:Task): Promise<boolean>{
     try {
       const response = await fetch (this.URL_getAllOrPostTask, {
         method: "POST",
@@ -91,9 +94,11 @@ export class TaskService {
         body: JSON.stringify(task)
       });
       if (response.ok){
+        const newTask = await response.json()
         const currentTasks = this.tasksSubject.getValue();
-        currentTasks.push(task);
+        currentTasks.push(newTask);
         this.tasksSubject.next(currentTasks); //Actualizamos la lista de tareas a la que esta suscripta el task-list component.
+        return true;
       }
       else
         throw new Error ('No se pudo agregar con eficacia la tarea.' + response.text);
@@ -102,9 +107,9 @@ export class TaskService {
     }
   }
 
-  async updateTask (taskId: Int16Array, task:Task): Promise<Boolean>{
+  async updateTask (task:Task): Promise<Boolean>{
     try {
-      const response = await fetch (this.URL_deleteOrUpdateTask+taskId, {
+      const response = await fetch (this.URL_deleteOrUpdateTask+task.taskId, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json" // Indicar que el tipo de contenido es JSON
@@ -113,17 +118,14 @@ export class TaskService {
       })
       if (response.ok)
         return true;
-      else{
-        console.error ("No se pudo actualizar con eficacia la tarea.", response.text);
-        return false;
-      }
+      else
+        throw new Error('No se pudo actualizar con eficacia la tarea.' + response.text);
     } catch (error) {
-      console.error('Ocurrió un error al procesar la solicitud PUT:', error);
-      return false;
+      throw new Error('Ocurrió un error al procesar la solicitud GET' + error);
     }
   }
 
-  async deleteTask (taskId: Int16Array): Promise<Boolean>{
+  async deleteTask (taskId: Int16Array){
     try {
       const response = await fetch (this.URL_deleteOrUpdateTask+taskId, {
         method: "DELETE",
@@ -131,15 +133,18 @@ export class TaskService {
           "Content-Type": "application/json" // Indicar que el tipo de contenido es JSON
         }
       })
-      if (response.ok)
-        return true;
-      else{
-        console.error ("No se pudo eliminar con eficacia la tarea.", response.text);
-        return false;
+      if (response.ok){
+        const updatedTasks = this.tasksSubject.getValue().filter(task => taskId !== task.taskId as unknown as Int16Array)
+        this.tasksSubject.next(updatedTasks);
       }
+      else
+        throw new Error('No se pudo eliminar con eficacia la tarea' + response.text);
     } catch (error) {
-      console.error('Ocurrió un error al procesar la solicitud DELETE:', error);
-      return false;
+      throw new Error('Ocurrió un error al procesar la solicitud DELETE' + error);
     }
+  }
+
+  emitTaskDeleteRequested(taskId: number) {
+    this.taskDeleteRequestedSubject.next(taskId);
   }
 }

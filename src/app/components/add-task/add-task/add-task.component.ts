@@ -13,7 +13,8 @@ import { TaskService } from 'src/app/services/task-service';
 
 export class AddTaskComponent {
   showFormAddTask = false;
-  
+  result: String = ''
+
   group_addTask = new FormGroup ({
     name: new FormControl (null, [Validators.required, Validators.nullValidator]),
     description: new FormControl (),
@@ -35,14 +36,25 @@ export class AddTaskComponent {
     this.showFormAddTask = false;
   }
 
-  addTask (task: Task){
+  async addTask (task: Task){
     if (task != null){
       try {
-        this.taskService.addTask(task);
+        this.showResult (await this.taskService.addTask(task))
       } catch (error) {
         console.error(error)
       }
     }
+  }
+
+  showResult (flag: boolean){
+    this.showFormAddTask = false;
+    if (flag)
+      this.result = 'La tarea se agrego con exito!'
+    else
+      this.result = 'Hubo un error al agregar la tarea...'
+    setTimeout (()=>{
+      this.result = '';
+    }, 2000);
   }
 
   get name (){ return this.group_addTask.get('name') }
