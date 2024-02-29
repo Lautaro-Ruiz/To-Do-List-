@@ -1,2 +1,30 @@
-<app-main-menu></app-main-menu>
+<header>
+    <nav>
+        <app-navbar id="navbar"></app-navbar>
+    </nav>
+</header>
+
+<body id="container">
+    <main id="main" class="grid-1">
+        <app-add-task></app-add-task>
+        <app-task-list></app-task-list>
+    </main>
+    
+    <aside id="aside" class="grid-2">
+        <div id="title-filters" >
+            <section id="title-filters">Filters</section>
+        </div>
+        <div>
+            <section>Order By</section>
+        </div>
+        <div id="sort-buttons">
+            <app-priority-list></app-priority-list>
+            <app-status-list></app-status-list>
+        </div>
+    </aside>
+</body>
+
+<footer id="footer">
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>Doloribus quidem explicabo id iusto ipsa, tempora iste facilis saepe culpa aspernatur magnam  <br> obcaecati tenetur, commodi corporis sint. Sequi recusandae fuga modi!</div>
+</footer>
 <router-outlet></router-outlet>
