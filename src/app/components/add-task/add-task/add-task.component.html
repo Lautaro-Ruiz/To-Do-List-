@@ -4,24 +4,26 @@
 
 <section id="form-add-task" *ngIf="showFormAddTask">
     <form [formGroup]="group_addTask" (ngSubmit)="onSubmit()">
-        <label for="name">Titulo</label>
-        <input type="text" name="name" formControlName="name" placeholder="Titulo de la tarea">
+        <div>
+            <label for="name">Titulo</label>
+            <input type="text" name="name" formControlName="name" placeholder="Titulo de la tarea">
+        </div>
         
         <label for="description">Descripcion</label>
         <input type="text" name="description" formControlName="description" placeholder="Sobre que trata...">
         
         <label for="status">Estado</label>
-        <select id="status" formControlName="status">
+        <select class="btn btn-secondary" id="status" formControlName="status">
             <option *ngFor="let option of statusOptions" [value]="option">{{ option }}</option>
         </select>
 
         <label for="priority">Prioridad:</label>
-        <select id="priority" formControlName="priority">
+        <select class="btn btn-secondary" id="priority" formControlName="priority">
           <option *ngFor="let option of priorityOptions" [value]="option">{{ option }}</option>
         </select>
 
-        <button type="submit" [disabled]="!group_addTask.valid">Agregar tarea</button>
-        <button (click)="hideForm()"> Cancelar </button>
+        <button class="btn btn-success" type="submit" [disabled]="!group_addTask.valid">Agregar tarea</button>
+        <button class="btn btn-danger" (click)="hideForm()"> Cancelar </button>
     </form>
 </section>
 
