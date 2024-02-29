@@ -7,6 +7,7 @@ import { TaskService } from 'src/app/services/task-service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // Importa FormsModule
+import { SortedListService } from 'src/app/services/sorted-list.service';
 
 @Component({
   selector: 'app-task-list',
@@ -30,7 +31,7 @@ export class TaskListComponent implements OnInit {
   temporaryStatus: TaskStatus | null = null;
   temporaryPriority: TaskPriority | null = null;
   
-  constructor (private taskService: TaskService){}
+  constructor (private taskService: TaskService, private sortedListService: SortedListService){}
 
   async ngOnInit() {
     if (this.firstLoad) {
@@ -41,7 +42,9 @@ export class TaskListComponent implements OnInit {
       }
       this.firstLoad = false;
     }
-    this.subscribeToShowTaskList ()
+    this.subscribeToShowTaskList ();
+    this.subscribeToSortedPriorityTaskList ();
+    this.subscribeToSortedStatusTaskList();
   }
 
   subscribeToShowTaskList (){
@@ -49,6 +52,20 @@ export class TaskListComponent implements OnInit {
       this.taskList = tasks;
       this.showList = true;
     })
+  }
+
+  subscribeToSortedPriorityTaskList() {
+    this.sortedListService.sortedPriorityList$.subscribe(sortedList => {
+      if (sortedList.length > 0) 
+        this.taskList = sortedList;
+    });
+  }
+
+  subscribeToSortedStatusTaskList() {
+    this.sortedListService.sortedStatusList$.subscribe(sortedList => {
+      if (sortedList.length > 0) 
+        this.taskList = sortedList;
+    });
   }
 
   deleteTask (task:Task){
@@ -100,11 +117,11 @@ export class TaskListComponent implements OnInit {
     return true;
   }
 
-  refreshTaskList (){
+  refreshTaskList () {
     this.refreshList = true;
     setTimeout(() => {
       this.refreshList = false;
-    }, 500);
+    }, 0);
   }
 
   cancelEdit() {

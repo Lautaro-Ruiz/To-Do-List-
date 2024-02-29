@@ -7,7 +7,11 @@ import { TaskListComponent } from './components/task-list/task-list/task-list.co
 import { AddTaskComponent } from './components/add-task/add-task/add-task.component';
 import { DeleteTaskComponent } from './components/delete-task/delete-task/delete-task.component';
 import { FormsModule } from '@angular/forms';
-import { SearchBarComponent } from './components/search-bar/search-bar/search-bar.component';
+import { SearchBarComponent } from './components/navbar/search-bar/search-bar/search-bar.component';
+import { PriorityListComponent } from './components/priority-list/priority-list/priority-list.component';
+import { StatusListComponent } from './components/status-list/status-list/status-list.component';
+import { MainMenuComponent } from './components/main-menu/main-menu/main-menu.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { SearchBarComponent } from './components/search-bar/search-bar/search-ba
     TaskListComponent,
     AddTaskComponent,
     DeleteTaskComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    PriorityListComponent,
+    StatusListComponent,
+    MainMenuComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

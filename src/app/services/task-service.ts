@@ -15,8 +15,6 @@ export class TaskService {
   taskDeleteRequested$: Observable<number> = this.taskDeleteRequestedSubject.asObservable();
 
   private URL_getAllOrPostTask = "http://localhost:8092/tasks/"
-  private URL_getAllTaskByPriority = "http://localhost:8092/tasks/priority"
-  private URL_getAllTaskByStatus = "http://localhost:8092/tasks/status"
   private URL_deleteOrUpdateTask = "http://localhost:8092/tasks/"
 
   constructor() { }
@@ -42,43 +40,8 @@ export class TaskService {
       if (!response.ok)
         throw new Error ('Ha ocurrido un error al cargar las tareas.');
       let tasks = await response.json();
+      tasks = tasks.filter((task: Task) => !task.eliminated);
       this.tasksSubject.next(tasks);
-    }catch (error){
-      throw new Error('Ocurrió un error al procesar la solicitud GET' + error);
-    }
-  }
-
-  async fetchAllTasksByPriority (priority:String): Promise<Array<Task>>{
-    try{
-      const response = await fetch ((this.URL_getAllTaskByPriority+"?priority="+priority), {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json" // Indicar que el tipo de contenido es JSON
-        }
-      });
-      if (response.status === 204) 
-        throw new Error ('No hay contenido...');
-      if (!response.ok)
-        throw new Error ('Ha ocurrido un error al cargar las tareas.');
-      return await response.json();
-    }catch (error){
-      throw new Error('Ocurrió un error al procesar la solicitud GET' + error);
-    }
-  }
-
-  async fetchAllTasksByStatus (status:String): Promise<Array<Task>>{
-    try{
-      const response = await fetch ((this.URL_getAllTaskByStatus+"?status="+status), {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json" // Indicar que el tipo de contenido es JSON
-        }
-      });
-      if (response.status === 204) 
-        throw new Error ('No hay contenido...');
-      if (!response.ok)
-        throw new Error ('Ha ocurrido un error al cargar las tareas.');
-      return await response.json();
     }catch (error){
       throw new Error('Ocurrió un error al procesar la solicitud GET' + error);
     }

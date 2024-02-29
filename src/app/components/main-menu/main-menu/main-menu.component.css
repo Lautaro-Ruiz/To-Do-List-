@@ -1,0 +1,48 @@
+
+
+#navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filters{
+    display: block;
+}
+
+#main{
+    padding-top: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#aside{
+    padding-top: 2rem;
+}
+
+#container{
+    display: grid;
+    width: 100%;
+    margin: 2rem;
+    grid-template-columns: 30% 70%;
+    grid-template-areas:
+    "filtro  tareas";
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    .grid-1{
+        background-color: rgb(221, 131, 20);
+        grid-area: tareas;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .grid-2{
+        grid-area: filtro;
+        background-color: blue;
+    }
+}

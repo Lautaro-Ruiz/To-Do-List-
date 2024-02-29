@@ -1,8 +1,7 @@
-<section>
-    <form action="">
-        <input type="text" id="search-bar" placeholder="Search Task by name..." [formControl]="searchControl">
-    </form>
-</section>
+<div id="navbar">
+    <i class="fas fa-search">🔍</i>
+    <input type="text" id="search-bar" placeholder="Search Task by name..." [formControl]="searchControl">
+</div>
 
 <section>
     <ul *ngFor="let task of successList">
