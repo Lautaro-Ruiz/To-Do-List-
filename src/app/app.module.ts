@@ -12,6 +12,7 @@ import { PriorityListComponent } from './components/priority-list/priority-list/
 import { StatusListComponent } from './components/status-list/status-list/status-list.component';
 import { MainMenuComponent } from './components/main-menu/main-menu/main-menu.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     PriorityListComponent,
     StatusListComponent,
     MainMenuComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

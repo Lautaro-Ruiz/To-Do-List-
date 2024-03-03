@@ -1,9 +1,5 @@
-<!-- <section id="button-delete-task">
-    <button (click)="showOptions()">🗑</button>
-</section> -->
-
 <section id="section-delete-task" *ngIf="showSectionDeleteTask">
-    <p>Desea eliminar esta tarea?</p>
-    <button (click)="deleteTask()">Confirmar</button>
-    <button (click)="hideOptions()">Cancelar</button>
+    <p>Are you sure to delete this task?</p>
+    <button class="btn btn-success" (click)="deleteTask()">Confirm<i class="gg-check-o"></i></button>
+    <button class="btn btn-danger" (click)="hideOptions()">Cancel<i class="gg-close-o"></i></button>
 </section>

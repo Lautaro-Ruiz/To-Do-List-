@@ -6,16 +6,20 @@
 
 <body id="container">
     <main id="main" class="grid-1">
-        <app-add-task></app-add-task>
-        <app-task-list></app-task-list>
+        <div id="container-component-add-task">
+            <app-add-task></app-add-task>
+        </div>
+        <div id="container-component-task-list">
+            <app-task-list></app-task-list>
+        </div>
     </main>
     
     <aside id="aside" class="grid-2">
         <div id="title-filters" >
-            <section id="title-filters">Filters</section>
+            <h3 class="text-dark font-medium fs-4" id="title-filters">Filters</h3>
         </div>
         <div>
-            <section>Order By</section>
+            <h5 class="card-title" >Sort By</h5>
         </div>
         <div id="sort-buttons">
             <app-priority-list></app-priority-list>

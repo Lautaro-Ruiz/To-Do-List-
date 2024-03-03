@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // Importa FormsModule
 import { SortedListService } from 'src/app/services/sorted-list.service';
+import { ListOfSearchedTasksService } from 'src/app/services/list-of-searched-tasks.service';
 
 @Component({
   selector: 'app-task-list',
@@ -17,7 +18,7 @@ import { SortedListService } from 'src/app/services/sorted-list.service';
 
 export class TaskListComponent implements OnInit {
   taskList: Array<Task> = []
-  showList = false;
+  showList = true;
   firstLoad = true; // Bandera para controlar la primera carga, y asi no generar una peticion por cada vez que se agrega una tarea nueva.
   
   taskIdToDelete: number | null = null;
@@ -30,8 +31,10 @@ export class TaskListComponent implements OnInit {
   refreshList: boolean = false;
   temporaryStatus: TaskStatus | null = null;
   temporaryPriority: TaskPriority | null = null;
+
+  taskListNoContent= false;
   
-  constructor (private taskService: TaskService, private sortedListService: SortedListService){}
+  constructor (private taskService: TaskService, private sortedListService: SortedListService, private listOfSearchedTask: ListOfSearchedTasksService){}
 
   async ngOnInit() {
     if (this.firstLoad) {
@@ -43,8 +46,9 @@ export class TaskListComponent implements OnInit {
       this.firstLoad = false;
     }
     this.subscribeToShowTaskList ();
-    this.subscribeToSortedPriorityTaskList ();
-    this.subscribeToSortedStatusTaskList();
+    this.subscribeToShowSortedPriorityTaskList ();
+    this.subscribeToShowSortedStatusTaskList();
+    this.subscribeToShowListOfTaskSearched ();
   }
 
   subscribeToShowTaskList (){
@@ -54,18 +58,32 @@ export class TaskListComponent implements OnInit {
     })
   }
 
-  subscribeToSortedPriorityTaskList() {
+  subscribeToShowSortedPriorityTaskList() {
     this.sortedListService.sortedPriorityList$.subscribe(sortedList => {
       if (sortedList.length > 0) 
         this.taskList = sortedList;
+        this.showList = true;
     });
   }
 
-  subscribeToSortedStatusTaskList() {
+  subscribeToShowSortedStatusTaskList() {
     this.sortedListService.sortedStatusList$.subscribe(sortedList => {
       if (sortedList.length > 0) 
         this.taskList = sortedList;
+        this.showList = true;
     });
+  }
+
+  subscribeToShowListOfTaskSearched (){
+    this.listOfSearchedTask.listOfTaskSearched$.subscribe((updatedList) => {
+      if (updatedList[0] != undefined && updatedList[0].name == "NO-CONTENT"){
+        this.taskListNoContent = true;
+      } else if (updatedList && updatedList.length > 0) {
+        this.taskList = updatedList;
+        this.showList = true;
+        this.taskListNoContent = false;
+      }
+    })
   }
 
   deleteTask (task:Task){

@@ -1,7 +1,39 @@
+*{
+    background-color: rgb(255, 255, 255);
+}
 
+.gg-menu-grid-o {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 16px;
+    height: 16px;
+   }
+   
+   .gg-menu-grid-o::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: currentColor;
+    box-shadow:
+    0 6px 0,
+    6px 6px 0,
+    12px 6px 0,
+    6px 12px 0,
+    12px 12px 0,
+    6px 0 0,
+    12px 0 0,
+    0 12px 0
+    ;
+    border-radius: 22px;
+   } 
 
 #navbar{
-    background-color: bisque;
+    background-color:#6c757d;
     width: 100%;
     display: flex;
     align-items: center;
@@ -20,37 +52,52 @@
     justify-content: center;
 }
 
+#container-component-add-task{
+    margin-bottom: 10rem;
+}
+
 #aside{
     padding-top: 1rem;
+    height: 100%;
 }
 
 #container{
     display: grid;
     width: 100%;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 16% 84%;
     grid-template-areas:
     "filtro  tareas";
     justify-content: center;
     align-items: center;
     align-content: center;
+    border-bottom: solid;
+    border-bottom-color: #6c757d;
+    border-bottom-width: 0.3rem;
 
     .grid-1{
-        background-color: rgb(218, 174, 121);
+        padding-left: 1rem;
         grid-area: tareas;
-        display: flex;
+        display: block;
         justify-content: center;
     }
     
     .grid-2{
         grid-area: filtro;
-        background-color: rgb(163, 163, 245);
+        border-right: solid;
+        border-right-color: #6c757d;
+        border-right-width: 0.3rem;
     }
-}
-
-#footer{
-    background-color: cadetblue;
 }
 
 #title-filters{
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+#footer{
+    justify-content: center;
+    text-align: center;
+    padding-top: 2rem;
 }

@@ -1,29 +1,30 @@
-<section id="button-add-task">
-    <button (click)="showForm()">+</button>
+<section id="section-button-add-task">
+    <h3 class="text-dark font-medium fs-4">Create Task</h3>
+    <button id="button-add-task" (click)="showForm()"> <i class="gg-add"></i></button>
 </section>
 
 <section id="form-add-task" *ngIf="showFormAddTask">
     <form [formGroup]="group_addTask" (ngSubmit)="onSubmit()">
         <div>
-            <label for="name">Titulo</label>
+            <label for="name">Name: </label>
             <input type="text" name="name" formControlName="name" placeholder="Titulo de la tarea">
         </div>
         
-        <label for="description">Descripcion</label>
+        <label for="description">Description: </label>
         <input type="text" name="description" formControlName="description" placeholder="Sobre que trata...">
         
-        <label for="status">Estado</label>
+        <label for="status">Status: </label>
         <select class="btn btn-secondary" id="status" formControlName="status">
             <option *ngFor="let option of statusOptions" [value]="option">{{ option }}</option>
         </select>
 
-        <label for="priority">Prioridad:</label>
+        <label for="priority">Priority:</label>
         <select class="btn btn-secondary" id="priority" formControlName="priority">
           <option *ngFor="let option of priorityOptions" [value]="option">{{ option }}</option>
         </select>
 
-        <button class="btn btn-success" type="submit" [disabled]="!group_addTask.valid">Agregar tarea</button>
-        <button class="btn btn-danger" (click)="hideForm()"> Cancelar </button>
+        <button class="btn btn-success" type="submit" [disabled]="!group_addTask.valid"> Create <i class="gg-check-o"></i> </button>
+        <button class="btn btn-danger" (click)="hideForm()"> Cancel <i class="gg-close-o"></i> </button>
     </form>
 </section>
 

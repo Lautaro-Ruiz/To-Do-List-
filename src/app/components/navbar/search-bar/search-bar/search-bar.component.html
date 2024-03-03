@@ -2,17 +2,3 @@
     <i class="fas fa-search">🔍</i>
     <input type="text" id="search-bar" placeholder="Search Task by name..." [formControl]="searchControl">
 </div>
-
-<section>
-    <ul *ngFor="let task of successList">
-        <li>
-            <div>{{task.name}}</div> <div> Status: {{task.status}}</div>
-            <button (click)="showDetails ()"> View Details </button>
-                <div *ngIf="flagDetails">
-                    <div>{{task.description}}</div>
-                    <div>Priority: {{task.priority}}</div>
-                </div>
-        </li>
-    </ul>
-    <p>{{result}}</p>
-</section>

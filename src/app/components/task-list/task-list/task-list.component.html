@@ -1,37 +1,84 @@
 <section>
     <div *ngIf="showList">
         <div *ngIf="!refreshList">
-            <ul *ngFor="let task of taskList"> 
-                <li>
-                    <div id="name" class="editable">{{ task.name }}</div>
-                    <div id="description" class="editable">{{ task.description }}</div>
-
-                    <div *ngIf="editingTask === task">
-                        <label>Status Actual: {{ task.status }}</label> <br>
-                        <select [(ngModel)]="temporaryStatus" [disabled]="!isEditing">
-                            <option *ngFor="let status of taskStatusOptions" [value]="status"> {{ status }}</option>
-                        </select>
-                    </div>
-                    <div *ngIf="editingTask !== task"> Status: {{ task.status }}</div>
+            <!-- <i class="gg-list"></i> -->
+            <div class="card-body">
+                <h4 class="card-title">List</h4>
+                <div class="table-responsive">
+                  <table class="table align-middle text-nowrap">
+                    <thead>
+                          <tr>
+                              <th class="text-dark font-medium fs-4">Name of Task</th>
+                              <th class="text-dark font-medium fs-4">Description</th>
+                              <th class="text-dark font-medium fs-4">Status</th>
+                              <th class="text-dark font-medium fs-4">Priority</th>
+                              <th class="text-dark font-medium fs-4">Edit</th>
+                              <th class="text-dark font-medium fs-4">Delete</th>
+                          </tr>
+                    </thead>
                     
-                    <div *ngIf="editingTask === task">
-                        <label>Priority Actual: {{ task.priority }}</label> <br>
-                        <select [(ngModel)]="temporaryPriority" [disabled]="!isEditing">
-                            <option *ngFor="let priority of taskPriorityOptions" [value]="priority"> {{ priority }}</option>
-                        </select>
-                    </div>
-                    <div *ngIf="editingTask !== task">Priority: {{ task.priority }}</div>
+                    <tbody *ngIf="taskListNoContent">
+                        <p class="text-dark font-medium fs-4">No se encuentran resultados...</p>
+                    </tbody>
 
-                    <button (click)="editTask(task)">Editar</button>
-                    <button *ngIf="editingTask === task" (click)="saveChanges(task)">Confirmar</button>
-                    <button *ngIf="editingTask === task" (click)="cancelEdit()">Cancelar</button>
-
-                    <button (click)="deleteTask(task)">Eliminar</button>
-                    <section *ngIf="task.taskId === taskIdToDelete">
-                        <app-delete-task></app-delete-task>
-                    </section>
-                </li>
-            </ul>
+                    <tbody *ngIf="!taskListNoContent">
+                        <tr *ngFor="let task of taskList">
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="ms-3">
+                                        <h5 class="mb-0 font-medium">{{task.name}}</h5>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="ms-3">
+                                        <h5 class="mb-0 font-medium">{{task.description}}</h5>
+                                    </div>
+                                </div>
+                            </td>
+        
+                            <td>
+                                <div *ngIf="editingTask !== task"> 
+                                    <h5 class="mb-0 fw-normal">{{task.status}}</h5>
+                                </div> 
+                                <div *ngIf="editingTask === task">
+                                    <h5 class="mb-0 fw-normal">{{task.status}}</h5>
+                                    <select [(ngModel)]="temporaryStatus" [disabled]="!isEditing">
+                                        <option *ngFor="let status of taskStatusOptions" [value]="status"> {{ status }}</option>
+                                    </select>
+                                </div>
+                            </td>
+        
+                            <td>
+                                <div *ngIf="editingTask === task">
+                                    <h5 class="mb-0 fw-normal">{{task.priority}}</h5>
+                                    <select [(ngModel)]="temporaryPriority" [disabled]="!isEditing">
+                                        <option *ngFor="let priority of taskPriorityOptions" [value]="priority"> {{ priority }}</option>
+                                    </select>
+                                </div>
+                                <div *ngIf="editingTask !== task">
+                                    <h5 class="mb-0 fw-normal">{{task.priority}}</h5>
+                                </div>
+                            </td>
+        
+                            <td>
+                                <button class="btn btn-info" (click)="editTask(task)"><i class="gg-edit-markup"></i> </button>
+                                <button class="btn btn-success" *ngIf="editingTask === task" (click)="saveChanges(task)"> Save<i class="gg-check-o"></i></button>
+                                <button class="btn btn-danger" *ngIf="editingTask === task" (click)="cancelEdit()">Cancel<i class="gg-close-o"></i></button>
+                            </td>
+        
+                            <td>
+                                <button class="btn btn-danger" (click)="deleteTask(task)"><i class="gg-close-o"></i> </button>
+                                <section *ngIf="task.taskId === taskIdToDelete">
+                                    <app-delete-task></app-delete-task>
+                                </section>
+                            </td>
+                          </tr>              
+                      </tbody>
+                  </table>
+              </div>
+              </div>
         </div>
     </div>
 </section>
