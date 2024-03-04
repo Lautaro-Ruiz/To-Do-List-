@@ -57,7 +57,9 @@
     /* <i class="gg-home"></i> */
 
 #section-component-search-bar{
+    display: flex;
     background-color:#6c757d;
     padding-bottom: 1.5rem;
     padding-top: 1.5rem;
 }
+

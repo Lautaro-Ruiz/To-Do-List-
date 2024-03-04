@@ -2,10 +2,6 @@ body{
     background: #d1d5db;
 }
 
-i{
-   padding-right: 0.7rem;
-}
-
 #navbar{
     width: 100%;
     align-items: center;
@@ -45,4 +41,26 @@ i{
 #button-show-details{
     background-color:#6c757d;
     border: 0rem;
+}
+
+#search-bar{
+    border-radius: 0.5rem;
+    border-width: 0.4rem;
+    padding: 0.3rem;
+    width: 16rem;
+}
+
+#search-bar:hover {
+    border-color: rgb(0, 0, 0); 
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}
+
+#search-bar::placeholder{
+    font-weight: bold;
+    color:#212529;
+    font-size: 1.3rem;
+}
+
+#search-logo{
+    background-color:#6c757d;
 }

@@ -1,4 +1,5 @@
 .gg-close-o {
+   background-color: transparent;
    color: black;
     box-sizing: border-box;
     position: relative;
@@ -28,6 +29,7 @@
  }
  
  .gg-check-o {
+   background-color: transparent;
    color: black;
     box-sizing: border-box;
     position: relative;

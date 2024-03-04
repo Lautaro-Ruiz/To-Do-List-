@@ -1,4 +1,8 @@
 <section>
-    <button class="btn btn-rounded btn-secondary statusOption" (click)="subscribeToShowStatusList (false)">Ascendent Status </button>
-    <button class="btn btn-rounded btn-secondary statusOption" (click)="subscribeToShowStatusList (true)">Descendent Status </button>
+        <button class="btn btn-rounded btn-secondary statusOption buttonSortStatus" (click)="subscribeToShowStatusList (false)">
+            <p class="status-text">Status </p> <i class="gg-arrow-up"></i>
+        </button>
+        <button class="btn btn-rounded btn-secondary statusOption buttonSortStatus" (click)="subscribeToShowStatusList (true)"> 
+            <p class="status-text">Status </p> <i class="gg-arrow-down"></i>
+        </button>
 </section>

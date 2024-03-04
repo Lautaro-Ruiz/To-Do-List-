@@ -28,6 +28,10 @@
    left: 8px
 }
  .gg-close-o {
+   background-color: transparent;
+   margin-top: 0.1rem;
+   margin-left: 0.4rem;
+   color: black;
    box-sizing: border-box;
    position: relative;
    display: block;
@@ -56,6 +60,10 @@
 }
 
 .gg-check-o {
+   background-color: transparent;
+   margin-top: 0.1rem;
+   margin-left: 0.4rem;
+   color: black;
    box-sizing: border-box;
    position: relative;
    display: block;
@@ -82,6 +90,7 @@
 }
 
 #section-button-add-task{
+   margin-top: 0rem;
    display:flex;
 }
 
@@ -91,4 +100,117 @@
     height: 2rem;
     width: 2rem;
 }
- 
+
+.input-add-task{
+   text-align: center;
+   margin-left: 0.4rem;
+   border-radius: 0.5rem;
+   border-width: 0.4rem;
+   padding: 0.15rem;
+   width: 9rem;
+}
+
+.input-add-task:hover {
+   border-color: rgb(0, 0, 0); 
+   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}
+
+.input-add-task::placeholder{
+   font-weight: bold;
+   color:#212529;
+   font-size: 1rem;
+}
+
+.container-name-description{
+   display: inline-flex;
+}
+
+#container-name{
+   margin-right: 2rem;
+}
+
+h5{
+   padding-top: 0.5rem;
+}
+
+.container-status-priority{
+   margin-top: 0.8rem;
+   display: flex;
+}
+
+#container-opciones{
+   margin-top: 1.15rem;
+   margin-left: 5rem;
+}
+
+#container-create{
+   height: min-content;
+   width: min-content;
+}
+
+#button-create{
+   display: flex;
+   margin-right: 1.2rem;
+   justify-content: center;
+   height: 2.3rem;
+}
+
+#create{
+   justify-content: center;
+   background-color: transparent;
+   font-weight: bold;
+   color: black;
+}
+
+#cancel{
+   justify-content: center;
+   background-color: transparent;
+   font-weight: bold;
+   color: black;
+}
+
+#button-cancel{
+   display: flex;
+   margin-right: 1.2rem;
+   justify-content: center;
+   height: 2.3rem;
+}
+
+#button-create:hover {
+   border-color: transparent;
+   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}
+
+#button-cancel:hover {
+   border-color:transparent; 
+   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}
+
+#container-opciones{
+   display: flex;
+}
+
+#container-status{
+   margin-right: 6rem;
+}
+
+#container-priority{
+   margin-right: 5.5rem;
+}
+
+.select {
+   height: 1.7rem;
+   font-size: 0.75rem;
+   text-align: center;
+   font-weight: bold;
+   font-style: italic;  
+}
+
+.select option {
+   font-size: 0.9rem;
+   text-align: center;
+   color: white;
+   font-weight: bold ;
+   font-style: italic;   
+   background-color:transparent; /* Cambia el color de fondo de las opciones */
+}

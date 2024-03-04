@@ -1,4 +1,5 @@
 .priorityOption{
+    font-weight: bold;
     display: block;
     margin: 1rem;
 }
@@ -6,3 +7,87 @@
 .options{
     width: 100%;
 }
+
+.buttonSortPriority{
+    height: 2.3rem;
+    display: flex;
+    color: black;
+}
+.gg-arrow-up {
+    margin-top: 0.1rem;
+    color: black;
+    background-color: transparent;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: rotate(180deg) scale(var(--ggs,1)); /* Rotar la flecha hacia arriba */
+    width: 22px;
+    height: 22px;
+}
+
+.gg-arrow-up::after,
+.gg-arrow-up::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 4px; /* Cambiamos a "bottom" */
+}
+
+.gg-arrow-up::after {
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid; /* Cambiamos a borde superior */
+    border-right: 2px solid; /* Cambiamos a borde derecho */
+    transform: rotate(-225deg); /* Rotar la parte superior de la flecha */
+    left: 7px; /* Ajustamos la posición */
+}
+
+.gg-arrow-up::before {
+    width: 2px;
+    height: 16px;
+    left: 10px;
+    background: currentColor;
+}
+
+.gg-arrow-down {
+    margin-top: 0.1rem;
+    color: black;
+    background-color: transparent;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 22px;
+    height: 22px
+   }
+   
+   .gg-arrow-down::after,
+   .gg-arrow-down::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 4px
+   }
+   
+   .gg-arrow-down::after {
+    width: 8px;
+    height: 8px;
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    transform: rotate(-45deg);
+    left: 7px
+   }
+   
+   .gg-arrow-down::before {
+    width: 2px;
+    height: 16px;
+    left: 10px;
+    background: currentColor
+   } 
+
+   .priority-text{
+    background-color: transparent;
+   }
