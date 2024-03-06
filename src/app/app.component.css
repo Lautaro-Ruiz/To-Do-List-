@@ -45,55 +45,81 @@
 }
 
 #main{
+    padding-top: 1rem;
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
 #container-component-add-task{
-    margin-bottom: 5rem;
+    margin-top: 0%;
+}
+
+#container-component-task-list{
+   
 }
 
 #aside{
-    padding-top: 1rem;
     height: 100%;
 }
 
 #container{
+    margin-top: 0%;
+    padding-top:0%;
     display: grid;
     width: 100%;
-    grid-template-columns: 13% 87%;
+    grid-template-columns: 11% 89%;
     grid-template-areas:
-    "filtro  tareas";
+    "filtro  tareas"
+    "filtro  filtros";
+    
     justify-content: center;
-    align-items: center;
+
     align-content: center;
     border-bottom: solid;
     border-bottom-color: #6c757d;
     border-bottom-width: 0.3rem;
+    border-bottom-left-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
 
     .grid-1{
         margin-top: 0rem;
-        padding-left: 1rem;
+        padding-top: 0%;
+        padding-left: 0.5rem;
         grid-area: tareas;
         display: block;
         justify-content: center;
     }
     
     .grid-2{
+        align-items: center;
+        padding-top: 1rem;
         grid-area: filtro;
         border-right: solid;
         border-right-color: #6c757d;
         border-right-width: 0.3rem;
+        border-top-right-radius: 0rem;
+        border-bottom-right-radius: 0.5rem;
     }
 }
 
 #title-filters{
+    margin-top: 0%;
+    padding-top: 0%;
     text-align: center;
     align-items: center;
     justify-content: center;
     justify-items: center;
+}
+
+#sort-buttons{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#sort-by{
+    padding-left: 0.2rem;
 }
 
 #footer{

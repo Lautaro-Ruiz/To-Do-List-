@@ -3,17 +3,17 @@
         <div *ngIf="!refreshList">
             <!-- <i class="gg-list"></i> -->
             <div class="card-body">
-                <h4 class="card-title">List</h4>
-                <div class="table-responsive">
+                <h4 class="card-title" id="title-of-list">List</h4>
+                <div class="table-responsive" id="task-table">
                   <table class="table align-middle text-nowrap">
                     <thead>
                           <tr>
-                              <th class="text-dark font-medium fs-4">Name of Task</th>
-                              <th class="text-dark font-medium fs-4">Description</th>
-                              <th class="text-dark font-medium fs-4">Status</th>
-                              <th class="text-dark font-medium fs-4">Priority</th>
-                              <th class="text-dark font-medium fs-4">Edit</th>
-                              <th class="text-dark font-medium fs-4">Delete</th>
+                              <th class="text-dark font-medium fs-4" id="th-name">Name</th>
+                              <th class="text-dark font-medium fs-4" id="th-description">Description</th>
+                              <th class="text-dark font-medium fs-4" id="th-status">Status</th>
+                              <th class="text-dark font-medium fs-4" id="th-priority">Priority</th>
+                              <th class="text-dark font-medium fs-4" id="th-edit">Edit</th>
+                              <th class="text-dark font-medium fs-4" id="th-delete">Delete</th>
                           </tr>
                     </thead>
                     
@@ -23,46 +23,43 @@
 
                     <tbody *ngIf="!taskListNoContent">
                         <tr *ngFor="let task of taskList">
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="ms-3">
-                                        <h5 class="mb-0 font-medium">{{task.name}}</h5>
-                                    </div>
+                            <td id="td-name">
+                                <div class="ms-3">
+                                    <h5 class="mb-0 font-medium">{{task.name}}</h5>
                                 </div>
                             </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="ms-3">
-                                        <h5 class="mb-0 font-medium">{{task.description}}</h5>
-                                    </div>
+
+                            <td id="td-description">
+                                <div class="ms-3">
+                                    <h5 class="mb-0 font-medium">{{task.description}}</h5>
                                 </div>
                             </td>
         
-                            <td>
+                            <td id="td-status">
                                 <div *ngIf="editingTask !== task"> 
-                                    <h5 class="mb-0 fw-normal">{{task.status}}</h5>
+                                    <h5 class="task-status-priority">{{task.status}}</h5>
                                 </div> 
                                 <div *ngIf="editingTask === task">
-                                    <h5 class="mb-0 fw-normal">{{task.status}}</h5>
-                                    <select [(ngModel)]="temporaryStatus" [disabled]="!isEditing">
+                                    <h5 class="task-status-priority edit-task">{{task.status}}</h5>
+                                    <select [(ngModel)]="temporaryStatus" class="select" [disabled]="!isEditing">
                                         <option *ngFor="let status of taskStatusOptions" [value]="status"> {{ status }}</option>
                                     </select>
                                 </div>
                             </td>
         
-                            <td>
+                            <td id="td-priority">
                                 <div *ngIf="editingTask === task">
-                                    <h5 class="mb-0 fw-normal">{{task.priority}}</h5>
-                                    <select [(ngModel)]="temporaryPriority" [disabled]="!isEditing">
+                                    <h5 class="task-status-priority edit-task" >{{task.priority}}</h5>
+                                    <select [(ngModel)]="temporaryPriority" class="select" [disabled]="!isEditing">
                                         <option *ngFor="let priority of taskPriorityOptions" [value]="priority"> {{ priority }}</option>
                                     </select>
                                 </div>
                                 <div *ngIf="editingTask !== task">
-                                    <h5 class="mb-0 fw-normal">{{task.priority}}</h5>
+                                    <h5 class="task-status-priority">{{task.priority}}</h5>
                                 </div>
                             </td>
         
-                            <td>
+                            <td id="td-edit">
                                 <button class="btn btn-info" id="button-edit" (click)="editTask(task)"><i class="gg-edit-markup"></i> </button><br>
                                 <div id="options-edit">
                                     <button class="btn btn-success" id="buttonSave" *ngIf="editingTask === task" (click)="saveChanges(task)"><i class="gg-check-o"></i></button>
@@ -70,7 +67,7 @@
                                 </div>
                             </td>
         
-                            <td>
+                            <td id="td-delete">
                                 <button class="btn btn-danger" (click)="deleteTask(task)">
                                     <svg id="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                         <path id="path" d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>

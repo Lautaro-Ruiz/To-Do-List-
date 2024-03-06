@@ -91,6 +91,7 @@
 
 #section-button-add-task{
    margin-top: 0rem;
+   padding-top: 0%;
    display:flex;
 }
 
@@ -104,7 +105,7 @@
 .input-add-task{
    text-align: center;
    margin-left: 0.4rem;
-   border-radius: 0.5rem;
+   border-radius: 1rem;
    border-width: 0.4rem;
    padding: 0.15rem;
    width: 9rem;
@@ -122,25 +123,158 @@
 }
 
 .container-name-description{
-   display: inline-flex;
+   display: grid;
+   grid-template-columns: 50% 50%;
+   grid-template-areas: 
+   "name description";
+
+   text-align: center;
+
+   #container-name{
+      grid-area: name;
+      display: inline-flex;
+      position: relative;
+      padding-right: 2rem;
+
+      #input-name{
+         padding: 1rem 0.3rem 0.8rem 0.8rem;
+         outline: none;
+         background: transparent;
+         border-radius: 5px;
+         color: #000000;
+         border:solid;
+         border-radius: 2rem;
+         border-width: 1px;
+      }
+
+      #input-name::placeholder{
+         text-align: center;
+         font-weight: bold;
+         color:#000000;
+         font-size: 1.2rem;
+      }
+
+      #span-name {
+         position: absolute;
+         left: 0;
+         font-size: 0.8em;
+         transform: translateX(14px) translateY(-11px);
+         padding: 0 4px 1px 6px;
+         border-top-left-radius: 0.5rem;
+         border-top-right-radius: 0.5rem;
+         background: white;
+         letter-spacing: 1px;
+         border: 0px solid #212121;
+         color: #000000;
+       }
+   }
+
+   #container-description{
+      padding-left: 0.7rem;
+      grid-area: description;
+      display: inline-flex;
+      position: relative;
+
+      #input-description{
+         padding: 1rem 0.3rem 0.8rem 0.8rem;
+         outline: none;
+         background: transparent;
+         border-radius: 5px;
+         color: #000000;
+         border:solid;
+         border-radius: 2rem;
+         border-width: 1px;
+      }
+
+      #input-description::placeholder{
+         text-align: center;
+         font-weight: bold;
+         color:#000000;
+         font-size: 1.2rem;
+      }
+
+      #span-description {
+         position: absolute;
+         left: 0;
+         font-size: 0.8em;
+         transform: translateX(22px) translateY(-11px);
+         padding: 0 4px 1px 6px;
+         border-top-left-radius: 0.5rem;
+         border-top-right-radius: 0.5rem;
+         background: white;
+         letter-spacing: 1px;
+         border: 0px solid #212121;
+         color: #000000;
+       }
+   }
 }
 
-#container-name{
-   margin-right: 2rem;
-}
-
-h5{
-   padding-top: 0.5rem;
-}
 
 .container-status-priority{
-   margin-top: 0.8rem;
-   display: flex;
+   padding-top: 1.5rem;
+   padding-bottom: 3.5rem;
+   display: grid;
+   grid-template-columns: 50% 50%;
+   grid-template-areas: 
+   "status priority";
+
+   #container-status{
+      text-align: center;
+      align-items: center;
+      justify-items: center;
+      grid-area: status;
+      display: block;
+      #status{
+         font-weight: bold;
+         color: black;
+         margin-right: 0.5rem;
+      }
+   }
+
+   #container-priority{
+      text-align: center;
+      align-items: center;
+      justify-items: center;
+      display: block;
+      grid-area: priority;
+      #priority{
+         font-weight: bold;
+         color: black;
+         margin-right: 0.5rem;
+      }
+   }
+}
+
+.select {
+   padding-top: 0%;
+   height: 1.7rem;
+   width: 10rem;
+   font-size: 1rem;
+   text-align: center;
+   font-weight: bold; 
+   background-color: transparent;
+   border-top-right-radius: 1rem;
+   border-bottom-right-radius: 1rem;
+   border-top-left-radius: 1rem;
+   border-bottom-left-radius: 1rem;
+   text-align: center;
+   color: #000000;
+}
+
+.select option {
+   border: solid;
+   border-color: black;
+   border-radius: 0.5rem;
+   font-size: 0.9rem;
+   text-align: center;
+   color: rgb(0, 0, 0);
+   font-weight: bold ;  
+   background-color:transparent; /* Cambia el color de fondo de las opciones */
 }
 
 #container-opciones{
    margin-top: 1.15rem;
-   margin-left: 5rem;
+   align-items: end;
 }
 
 #container-create{
@@ -150,9 +284,11 @@ h5{
 
 #button-create{
    display: flex;
-   margin-right: 1.2rem;
+   margin-right: 0.5rem;
    justify-content: center;
    height: 2.3rem;
+   border-radius: 1rem;
+   text-align: center;
 }
 
 #create{
@@ -174,6 +310,8 @@ h5{
    margin-right: 1.2rem;
    justify-content: center;
    height: 2.3rem;
+   border-radius: 1rem;
+   text-align: center;
 }
 
 #button-create:hover {
@@ -187,30 +325,17 @@ h5{
 }
 
 #container-opciones{
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   margin-bottom: 1rem;
    display: flex;
 }
 
-#container-status{
-   margin-right: 6rem;
-}
-
-#container-priority{
-   margin-right: 5.5rem;
-}
-
-.select {
-   height: 1.7rem;
-   font-size: 0.75rem;
-   text-align: center;
-   font-weight: bold;
-   font-style: italic;  
-}
-
-.select option {
-   font-size: 0.9rem;
-   text-align: center;
-   color: white;
-   font-weight: bold ;
-   font-style: italic;   
-   background-color:transparent; /* Cambia el color de fondo de las opciones */
+.form-add{
+   position: relative;
+   display: block;
+   border: 1px solid black;
+   padding: 1.5rem;
+   border-radius: 5px;
 }

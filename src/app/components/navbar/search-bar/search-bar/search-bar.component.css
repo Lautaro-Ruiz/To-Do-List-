@@ -7,6 +7,7 @@ body{
     align-items: center;
     justify-items: center;
     justify-content: center;
+    text-align: center;
     background-color:#6c757d;
 }
 
@@ -44,7 +45,7 @@ body{
 }
 
 #search-bar{
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     border-width: 0.4rem;
     padding: 0.3rem;
     width: 16rem;

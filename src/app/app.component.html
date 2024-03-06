@@ -5,21 +5,22 @@
 </header>
 
 <body id="container">
-    <main id="main" class="grid-1">
-        <div id="container-component-add-task">
+    <main id="main" >
+        <div class="grid-1" id="container-component-add-task">
             <app-add-task></app-add-task>
-        </div>
-        <div id="container-component-task-list">
-            <app-task-list></app-task-list>
         </div>
     </main>
     
+    <div class="grid-3" id="container-component-task-list">
+        <app-task-list></app-task-list>
+    </div>
+
     <aside id="aside" class="grid-2">
         <div id="title-filters" >
             <h3 class="text-dark font-medium fs-4" id="title-filters">Filters</h3>
         </div>
         <div>
-            <h5 class="card-title" >Sort By</h5>
+            <h5 class="card-title" id="sort-by">Sort By</h5>
         </div>
         <div id="sort-buttons">
             <app-priority-list></app-priority-list>

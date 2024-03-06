@@ -4,46 +4,44 @@
 </section>
 
 <section id="form-add-task" *ngIf="showFormAddTask">
-    <form [formGroup]="group_addTask" (ngSubmit)="onSubmit()">
-        <div class="container-name-description" id="container-name">
-            <h5>Name: </h5>
-            <input class="input-add-task" type="text" formControlName="name" placeholder="Titulo de la tarea">
+    <form class="form-add" [formGroup]="group_addTask" (ngSubmit)="onSubmit()">
+        <div  class="container-name-description">
+            <div id="container-name">
+                <input id="input-name" type="text" formControlName="name" placeholder="Titulo de la tarea">
+                <span id="span-name">Name</span>
+            </div>
+            
+            <div id="container-description">
+                <input id="input-description" type="text"  formControlName="description" placeholder="Sobre que trata">
+                <span id="span-description">Description</span>
+            </div>
         </div>
-        
-        <div class="container-name-description">
-            <h5 for="description">Description: </h5>
-            <input class="input-add-task" type="text" name="description" formControlName="description" placeholder="Sobre que trata">
-        </div>
-
-        <br>
 
         <div class="container-status-priority">
             <div id="container-status">
-                <h5 for="status" id="status">Status: </h5>
+                <h5 id="status">Status</h5>
                 <select class="btn btn-secondary select" formControlName="status">
                     <option *ngFor="let option of statusOptions" [value]="option">{{ option }}</option>
                 </select>
             </div>
     
             <div id="container-priority">
-                <h5 for="priority">Priority:</h5>
+                <h5 id="priority">Priority</h5>
                 <select class="btn btn-secondary select" formControlName="priority">
                   <option *ngFor="let option of priorityOptions" [value]="option">{{ option }}</option>
                 </select>
             </div>
-
-            <div id="container-opciones">
-                <div id="container-create">
-                    <button class="btn btn-success" id="button-create" type="submit" [disabled]="!group_addTask.valid"> 
-                       <p id="create">Create</p> <i class="gg-check-o"></i> 
-                    </button>
-                </div>
-                <button class="btn btn-danger" id="button-cancel" (click)="hideForm()"> 
-                    <p id="cancel">Cancel</p> <i class="gg-close-o"></i> 
+        </div>
+        <div id="container-opciones">
+            <div id="container-create">
+                <button class="btn btn-success" id="button-create" type="submit" [disabled]="!group_addTask.valid"> 
+                   <p id="create">Create</p> <i class="gg-check-o"></i> 
                 </button>
             </div>
+            <button class="btn btn-danger" id="button-cancel" (click)="hideForm()"> 
+                <p id="cancel">Cancel</p> <i class="gg-close-o"></i> 
+            </button>
         </div>
-        
     </form>
 </section>
 

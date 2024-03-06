@@ -56,10 +56,114 @@
 
     /* <i class="gg-home"></i> */
 
+    .gg-profile,
+    .gg-profile::after,
+    .gg-profile::before {
+     display: block;
+     box-sizing: border-box;
+     border: 2px solid;
+     border-radius: 100px
+    }
+    
+    .gg-profile {
+        background-color: transparent;
+     overflow: hidden;
+     transform: scale(var(--ggs,1));
+     width: 30px;
+     height: 30px;
+     position: relative
+    }
+    
+    .gg-profile::after,
+    .gg-profile::before {
+     content: "";
+     position: absolute;
+     top: 2px;
+     left: 5px;
+     width: 16px;
+     height: 16px
+    }
+    
+    .gg-profile::after {
+     border-radius: 200px;
+     top: 18.8px;
+     left: 0px;
+     width: 26px;
+     height: 26px
+    } 
+
 #section-component-search-bar{
-    display: flex;
+    margin: 0%;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 6% 88% 6%;
+    grid-template-areas:
+    "container-home  search-bar  profile";
+
     background-color:#6c757d;
-    padding-bottom: 1.5rem;
-    padding-top: 1.5rem;
+    padding-bottom: 0.4rem;
+    padding-top: 0.4rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    #container-home{
+        background-color: transparent;
+        grid-area: container-home;
+        padding-left: 1rem;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        #home{
+            border-radius: 2rem;
+            border-width: 0.2rem;
+            padding: 0.25rem;
+            padding-right: 0.4rem;
+            padding-left: 0.4rem;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+
+            #logo-home{
+                background-color: transparent;
+            }
+        }
+    }
+
+    #search-bar{
+        grid-area: search-bar;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    #container-profile{
+        background-color: transparent;
+        grid-area: profile;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+        #profile{
+            border-radius: 2rem;
+            border-width: 0.2rem;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            padding: 0.3rem;
+            padding-right: 0.4rem;
+            padding-left: 0.4rem;
+            
+            #logo-home{
+                background-color: transparent;
+            }
+        }
+    }
 }
 
