@@ -5,18 +5,43 @@
 }
 
 .statusOption{
-    font-weight: bold;
     display: block;
-    margin: 1rem;
+    margin-bottom: 1rem;
 }
 
-.buttonSortStatus{
-    height: 2.3rem;
-    display: flex;
-    color: black;
+.buttonSortStatus{ 
+    display: inline-flex;
+    padding: 5px;
+    border: 2px solid #0000;
     border-radius: 1rem;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    background: 
+    linear-gradient(black, #000000) padding-box,
+    linear-gradient(rgb(167, 4, 58), white) border-box;
+
+    border-width: 0.2rem;
+    font-size: 1.2rem;
+    height: 2.8rem;
+    width: 7rem;
+    display: flex;
+    color: rgb(245, 242, 242);
 }
+
+.buttonSortStatus:hover{
+    box-shadow: 0 0 0.7rem rgba(255, 255, 255, 0.5);
+}
+
+.status-text{
+    margin: 0%;
+    text-align: center;
+    background-color: transparent ;
+    padding-right: 0.2rem;
+    padding-bottom: 0%;
+}
+
 
 .gg-arrow-down {
     margin-top: 0.1rem;
@@ -56,10 +81,6 @@
     background: currentColor
    } 
 
-   .status-text{
-    background-color: transparent;
-   }
-
    .gg-arrow-up {
     margin-top: 0.1rem;
     color: black;
@@ -95,4 +116,11 @@
     height: 16px;
     left: 10px;
     background: currentColor;
+}
+
+.lucide{
+    background-color: transparent;
+}
+.sort-descendent{
+    background-color: transparent;
 }

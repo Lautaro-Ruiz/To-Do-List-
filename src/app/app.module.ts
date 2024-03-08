@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { SearchBarComponent } from './components/navbar/search-bar/search-bar/search-bar.component';
 import { PriorityListComponent } from './components/priority-list/priority-list/priority-list.component';
 import { StatusListComponent } from './components/status-list/status-list/status-list.component';
-import { MainMenuComponent } from './components/main-menu/main-menu/main-menu.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer/footer.component';
 
@@ -23,7 +22,6 @@ import { FooterComponent } from './components/footer/footer/footer.component';
     SearchBarComponent,
     PriorityListComponent,
     StatusListComponent,
-    MainMenuComponent,
     NavbarComponent,
     FooterComponent
   ],

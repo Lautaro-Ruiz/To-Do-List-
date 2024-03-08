@@ -66,7 +66,8 @@
     }
     
     .gg-profile {
-        background-color: transparent;
+        color: #fff;
+     background-color:black;
      overflow: hidden;
      transform: scale(var(--ggs,1));
      width: 30px;
@@ -93,16 +94,22 @@
     } 
 
 #section-component-search-bar{
+    border: 2px solid #0000;
+    background:
+    linear-gradient(black, #101010) padding-box,
+    linear-gradient(rgb(167, 4, 58), white) border-box;
+    border-width: 0.15rem;
+
+    background-color: #101010;
     margin: 0%;
     display: grid;
     width: 100%;
     grid-template-columns: 6% 88% 6%;
     grid-template-areas:
     "container-home  search-bar  profile";
-
-    background-color:#6c757d;
-    padding-bottom: 0.4rem;
-    padding-top: 0.4rem;
+    
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -118,6 +125,11 @@
 
         #home{
             border-radius: 2rem;
+            border: 2px solid #0000;
+            background: 
+            linear-gradient(black, #000000) padding-box,
+            linear-gradient(rgb(167, 4, 58), white) border-box;
+
             border-width: 0.2rem;
             padding: 0.25rem;
             padding-right: 0.4rem;
@@ -125,11 +137,19 @@
             text-align: center;
             justify-content: center;
             align-items: center;
-            background-color: transparent;
 
             #logo-home{
+                fill: #fff;
                 background-color: transparent;
+
+                .path-home{
+                    background-color:  #fff;
+                }
             }
+        }
+        
+        #home:hover{
+            box-shadow: 0 0 0.7rem rgba(255, 255, 255, 0.5);
         }
     }
 
@@ -150,13 +170,18 @@
         text-align: center;
         
         #profile{
+            background-color: #101010;
             border-radius: 2rem;
+            border: 2px solid #0000;
+            background: 
+            linear-gradient(black, #000000) padding-box,
+            linear-gradient(rgb(167, 4, 58), white) border-box;
+
             border-width: 0.2rem;
             text-align: center;
             justify-content: center;
             align-items: center;
-            background-color: transparent;
-            padding: 0.3rem;
+            padding: 0.4rem;
             padding-right: 0.4rem;
             padding-left: 0.4rem;
             
@@ -164,6 +189,9 @@
                 background-color: transparent;
             }
         }
+
+        #profile:hover{
+            box-shadow: 0 0 0.7rem rgba(255, 255, 255, 0.5);
+        }
     }
 }
-

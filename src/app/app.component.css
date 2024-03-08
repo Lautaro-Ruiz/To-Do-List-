@@ -1,5 +1,5 @@
 *{
-    background-color: rgb(255, 255, 255);
+    background-color: #101010;
 }
 
 .gg-menu-grid-o {
@@ -33,7 +33,7 @@
    } 
 
 #navbar{
-    background-color:#6c757d;
+    background-color: rgb(3, 3, 3);
     width: 100%;
     display: flex;
     align-items: center;
@@ -55,9 +55,9 @@
     margin-top: 0%;
 }
 
-#container-component-task-list{
+/* #container-component-task-list{
    
-}
+} */
 
 #aside{
     height: 100%;
@@ -68,7 +68,7 @@
     padding-top:0%;
     display: grid;
     width: 100%;
-    grid-template-columns: 11% 89%;
+    grid-template-columns: 10% 90%;
     grid-template-areas:
     "filtro  tareas"
     "filtro  filtros";
@@ -76,11 +76,11 @@
     justify-content: center;
 
     align-content: center;
-    border-bottom: solid;
+    /* border-bottom: solid;
     border-bottom-color: #6c757d;
     border-bottom-width: 0.3rem;
     border-bottom-left-radius: 0.7rem;
-    border-bottom-right-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem; */
 
     .grid-1{
         margin-top: 0rem;
@@ -95,21 +95,39 @@
         align-items: center;
         padding-top: 1rem;
         grid-area: filtro;
-        border-right: solid;
+        /* border-right: solid;
         border-right-color: #6c757d;
         border-right-width: 0.3rem;
         border-top-right-radius: 0rem;
-        border-bottom-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem; */
     }
 }
 
 #title-filters{
+    color: #fff;
     margin-top: 0%;
+    margin-bottom: 0%;
     padding-top: 0%;
     text-align: center;
     align-items: center;
     justify-content: center;
     justify-items: center;
+    padding-left: 0.2rem;
+}
+
+#container-title-filters{
+    color: #fff;
+    margin-top: 0%;
+    padding-top: 0%;
+    display: inline-flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+#container-of-title{
+    text-align: center;
 }
 
 #sort-buttons{
@@ -119,7 +137,19 @@
 }
 
 #sort-by{
+    color: #fff;
+    padding-top: 0.5rem;
     padding-left: 0.2rem;
+}
+
+#container-filters-buttons{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    padding: 2rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
 }
 
 #footer{
