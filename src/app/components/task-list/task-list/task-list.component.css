@@ -30,6 +30,7 @@
 }
 
 .gg-edit-markup {
+   background-color: #fff;
     box-sizing: border-box;
     position: relative;
     display: block;
@@ -156,10 +157,10 @@
    padding-top: 0.9rem;
    padding-left: 0.4rem;
    padding-right: 0.4rem;
-   background-color: #737373;
+   background-color: #646464;
    border: 2px solid #0000;
     background:
-    linear-gradient(black, #101010) padding-box,
+    linear-gradient(#212121, #212121) padding-box,
     linear-gradient(rgb(167, 4, 58), white) border-box;
     border-width: 0.1rem;
 }
@@ -171,6 +172,15 @@
 th{
    padding-right: 0rem;
    padding-left: 0rem;
+}
+
+.background-color-td-th{
+   color: #fff !important;
+   background-color: #2a2a2a;
+}
+
+.ms-3{
+   background-color: transparent;
 }
 
 #th-name{
@@ -229,30 +239,31 @@ th{
 }
 
 .select {
-   padding-top: 0%;
+   padding: 0%;
    height: 1.7rem;
    width: 10rem;
    font-size: 1rem;
    text-align: center;
    font-weight: bold; 
-   background-color: transparent;
+   background-color: #101010;
    border-top-right-radius: 1rem;
    border-bottom-right-radius: 1rem;
    border-top-left-radius: 1rem;
    border-bottom-left-radius: 1rem;
+   border-color: #fff;
    text-align: center;
-   color: #000000;
+   color: #fff;
 }
 
 .select option {
    border: solid;
-   border-color: black;
+   border-color: #fff;
    border-radius: 0.5rem;
    font-size: 0.9rem;
    text-align: center;
-   color: rgb(0, 0, 0);
+   color: #fff;
    font-weight: bold ;  
-   background-color:transparent; /* Cambia el color de fondo de las opciones */
+   background-color:#101010; /* Cambia el color de fondo de las opciones */
 }
 
 #th-edit{
@@ -266,6 +277,7 @@ th{
 }
 
 #options-edit{
+   background-color: transparent;
    padding-top: 0.2rem;
    display: flex;
    text-align: center;
@@ -281,6 +293,8 @@ th{
  }
 
  #buttonCancel{
+   background-color: rgb(167, 4, 58);
+   border-color: rgb(167, 4, 58);
    display: flex;
    margin-right: 1.2rem;
    justify-content: center;
@@ -297,4 +311,12 @@ th{
    width: 10rem;
 }
 
+#delete-task{
+   background-color: rgb(167, 4, 58);
+   border-color: rgb(167, 4, 58);
+}
+
+.container-value-priority-status{
+   background-color: transparent;
+}
 

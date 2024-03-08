@@ -1,5 +1,5 @@
 <section id="section-delete-task" *ngIf="showSectionDeleteTask">
-    <h6>Are you sure?</h6>
+    <h6 id="question">Are you sure?</h6>
     <button class="btn btn-success" (click)="deleteTask()"><i class="gg-check-o"></i></button>
-    <button class="btn btn-danger" (click)="hideOptions()"><i class="gg-close-o"></i></button>
+    <button class="btn btn-danger cancel" (click)="hideOptions()"><i class="gg-close-o"></i></button>
 </section>

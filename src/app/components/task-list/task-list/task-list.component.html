@@ -11,15 +11,15 @@
                 </div>
                 
                 <div class="table-responsive" id="task-table">
-                  <table class="table align-middle text-nowrap">
-                    <thead>
+                  <table class="table align-middle text-nowrap" id="tbl">
+                    <thead id="thead">
                           <tr>
-                              <th class="text-dark font-medium fs-4" id="th-name">Name</th>
-                              <th class="text-dark font-medium fs-4" id="th-description">Description</th>
-                              <th class="text-dark font-medium fs-4" id="th-status">Status</th>
-                              <th class="text-dark font-medium fs-4" id="th-priority">Priority</th>
-                              <th class="text-dark font-medium fs-4" id="th-edit">Edit</th>
-                              <th class="text-dark font-medium fs-4" id="th-delete">Delete</th>
+                              <th class="text-dark font-medium fs-4 background-color-td-th" id="th-name">Name</th>
+                              <th class="text-dark font-medium fs-4 background-color-td-th" id="th-description">Description</th>
+                              <th class="text-dark font-medium fs-4 background-color-td-th" id="th-status">Status</th>
+                              <th class="text-dark font-medium fs-4 background-color-td-th" id="th-priority">Priority</th>
+                              <th class="text-dark font-medium fs-4 background-color-td-th" id="th-edit">Edit</th>
+                              <th class="text-dark font-medium fs-4 background-color-td-th" id="th-delete">Delete</th>
                           </tr>
                     </thead>
                     
@@ -29,43 +29,43 @@
 
                     <tbody *ngIf="!taskListNoContent">
                         <tr *ngFor="let task of taskList">
-                            <td id="td-name">
+                            <td id="td-name" class="background-color-td-th">
                                 <div class="ms-3">
-                                    <h5 class="mb-0 font-medium">{{task.name}}</h5>
+                                    <h5 class="mb-0 font-medium background-color-td-th">{{task.name}}</h5>
                                 </div>
                             </td>
 
-                            <td id="td-description">
+                            <td id="td-description" class="background-color-td-th">
                                 <div class="ms-3">
-                                    <h5 class="mb-0 font-medium">{{task.description}}</h5>
+                                    <h5 class="mb-0 font-medium background-color-td-th">{{task.description}}</h5>
                                 </div>
                             </td>
         
-                            <td id="td-status">
-                                <div *ngIf="editingTask !== task"> 
-                                    <h5 class="task-status-priority">{{task.status}}</h5>
+                            <td id="td-status" class="background-color-td-th"> 
+                                <div *ngIf="editingTask !== task" class="container-value-priority-status"> 
+                                    <h5 class="task-status-priority background-color-td-th">{{task.status}}</h5>
                                 </div> 
-                                <div *ngIf="editingTask === task">
-                                    <h5 class="task-status-priority edit-task">{{task.status}}</h5>
+                                <div *ngIf="editingTask === task" class="container-value-priority-status">
+                                    <h5 class="task-status-priority edit-task background-color-td-th">{{task.status}}</h5>
                                     <select [(ngModel)]="temporaryStatus" class="select" [disabled]="!isEditing">
                                         <option *ngFor="let status of taskStatusOptions" [value]="status"> {{ status }}</option>
                                     </select>
                                 </div>
                             </td>
         
-                            <td id="td-priority">
-                                <div *ngIf="editingTask === task">
-                                    <h5 class="task-status-priority edit-task" >{{task.priority}}</h5>
+                            <td id="td-priority" class="background-color-td-th">
+                                <div *ngIf="editingTask === task" class="container-value-priority-status">
+                                    <h5 class="task-status-priority edit-task background-color-td-th" >{{task.priority}}</h5>
                                     <select [(ngModel)]="temporaryPriority" class="select" [disabled]="!isEditing">
                                         <option *ngFor="let priority of taskPriorityOptions" [value]="priority"> {{ priority }}</option>
                                     </select>
                                 </div>
-                                <div *ngIf="editingTask !== task">
-                                    <h5 class="task-status-priority">{{task.priority}}</h5>
+                                <div *ngIf="editingTask !== task" class="container-value-priority-status">
+                                    <h5 class="task-status-priority background-color-td-th">{{task.priority}}</h5>
                                 </div>
                             </td>
         
-                            <td id="td-edit">
+                            <td id="td-edit" class="background-color-td-th">
                                 <button class="btn btn-info" id="button-edit" (click)="editTask(task)"><i class="gg-edit-markup"></i> </button><br>
                                 <div id="options-edit">
                                     <button class="btn btn-success" id="buttonSave" *ngIf="editingTask === task" (click)="saveChanges(task)"><i class="gg-check-o"></i></button>
@@ -73,8 +73,8 @@
                                 </div>
                             </td>
         
-                            <td id="td-delete">
-                                <button class="btn btn-danger" (click)="deleteTask(task)">
+                            <td id="td-delete" class="background-color-td-th">
+                                <button id="delete-task" class="btn btn-danger" (click)="deleteTask(task)">
                                     <svg id="svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                         <path id="path" d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
                                         <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>

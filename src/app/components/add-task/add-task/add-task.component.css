@@ -125,6 +125,7 @@
 }
 
 .container-name-description{
+   background-color: #2a2a2a;
    display: grid;
    grid-template-columns: 50% 50%;
    grid-template-areas: 
@@ -133,6 +134,7 @@
    text-align: center;
 
    #container-name{
+      background-color: #212121;
       grid-area: name;
       display: inline-flex;
       position: relative;
@@ -141,9 +143,9 @@
       #input-name{
          padding: 1rem 0.3rem 0.8rem 0.8rem;
          outline: none;
-         background: transparent;
+         background: #101010 !important;
          border-radius: 5px;
-         color: #000000;
+         color: #fff;
          border:solid;
          border-radius: 2rem;
          border-width: 1px;
@@ -152,10 +154,10 @@
       #input-name::placeholder{
          text-align: center;
          font-weight: bold;
-         color:#000000;
+         color:#fff;
          font-size: 1.2rem;
       }
-
+      
       #span-name {
          position: absolute;
          left: 0;
@@ -164,25 +166,27 @@
          padding: 0 4px 1px 6px;
          border-top-left-radius: 0.5rem;
          border-top-right-radius: 0.5rem;
-         background: white;
+         background: #101010;
          letter-spacing: 1px;
-         border: 0px solid #212121;
-         color: #000000;
+         border: 0px solid #fff;
+         color: #fff;
        }
    }
 
    #container-description{
+      background-color: #212121;
       padding-left: 0.7rem;
       grid-area: description;
       display: inline-flex;
       position: relative;
 
       #input-description{
+         background-color: #101010 !important;
          padding: 1rem 0.3rem 0.8rem 0.8rem;
          outline: none;
          background: transparent;
          border-radius: 5px;
-         color: #000000;
+         color: #fff;
          border:solid;
          border-radius: 2rem;
          border-width: 1px;
@@ -191,7 +195,7 @@
       #input-description::placeholder{
          text-align: center;
          font-weight: bold;
-         color:#000000;
+         color:#fff;
          font-size: 1.2rem;
       }
 
@@ -203,16 +207,16 @@
          padding: 0 4px 1px 6px;
          border-top-left-radius: 0.5rem;
          border-top-right-radius: 0.5rem;
-         background: white;
+         background: #101010;
          letter-spacing: 1px;
-         border: 0px solid #212121;
-         color: #000000;
+         border: 0px solid #fff;
+         color: #fff;
        }
    }
 }
 
-
 .container-status-priority{
+   background-color: #212121;
    padding-top: 1.5rem;
    padding-bottom: 3.5rem;
    display: grid;
@@ -221,57 +225,62 @@
    "status priority";
 
    #container-status{
+      background-color:#212121;
       text-align: center;
       align-items: center;
       justify-items: center;
       grid-area: status;
       display: block;
       #status{
+         background-color:#212121;
          font-weight: bold;
-         color: black;
+         color: #fff;
          margin-right: 0.5rem;
       }
    }
 
    #container-priority{
+      background-color: #212121;
       text-align: center;
       align-items: center;
       justify-items: center;
       display: block;
       grid-area: priority;
       #priority{
+         background-color: #212121;
          font-weight: bold;
-         color: black;
+         color: #fff;
          margin-right: 0.5rem;
       }
    }
 }
 
 .select {
-   padding-top: 0%;
+   padding: 0%;
    height: 1.7rem;
    width: 10rem;
    font-size: 1rem;
    text-align: center;
    font-weight: bold; 
-   background-color: transparent;
+   background-color: #101010;
    border-top-right-radius: 1rem;
    border-bottom-right-radius: 1rem;
    border-top-left-radius: 1rem;
    border-bottom-left-radius: 1rem;
+   border-color: #fff;
    text-align: center;
-   color: #000000;
+   color: #fff;
 }
 
 .select option {
    border: solid;
-   border-color: black;
+   border-color: #fff;
    border-radius: 0.5rem;
    font-size: 0.9rem;
    text-align: center;
-   color: rgb(0, 0, 0);
+   color: #fff;
    font-weight: bold ;  
-   background-color:transparent; /* Cambia el color de fondo de las opciones */
+   background-color:#101010; /* Cambia el color de fondo de las opciones */
 }
 
 #container-opciones{
@@ -280,6 +289,7 @@
 }
 
 #container-create{
+   background-color: #212121;
    height: min-content;
    width: min-content;
 }
@@ -308,6 +318,8 @@
 }
 
 #button-cancel{
+   background-color: rgb(167, 4, 58);
+   border-color: rgb(167, 4, 58);
    display: flex;
    margin-right: 1.2rem;
    justify-content: center;
@@ -327,6 +339,7 @@
 }
 
 #container-opciones{
+   background-color: #212121;
    position: absolute;
    bottom: 0;
    right: 0;
@@ -337,9 +350,10 @@
 .form-add{
    position: relative;
    display: block;
-   border: 1px solid black;
+   border: 1px solid #fff;
    padding: 1.5rem;
    border-radius: 5px;
+   background-color: #212121;
 }
 
 #title-create-task{
