@@ -33,6 +33,7 @@ export class TaskListComponent implements OnInit {
   temporaryPriority: TaskPriority | null = null;
 
   taskListNoContent= false;
+  taskListNoCreated=true;
   
   constructor (private taskService: TaskService, private sortedListService: SortedListService, private listOfSearchedTask: ListOfSearchedTasksService){}
 
@@ -44,6 +45,8 @@ export class TaskListComponent implements OnInit {
         console.error (error)
       }
       this.firstLoad = false;
+      if (this.taskList.length > 0) this.taskListNoCreated = false;
+      else this.taskListNoCreated = true
     }
     this.subscribeToShowTaskList ();
     this.subscribeToShowSortedPriorityTaskList ();
@@ -55,7 +58,9 @@ export class TaskListComponent implements OnInit {
     this.taskService.tasks$.subscribe(tasks => {
       this.taskList = tasks;
       this.showList = true;
-    })
+    });
+    if (this.taskList.length > 0) this.taskListNoCreated = false;
+    else this.taskListNoCreated = true;
   }
 
   subscribeToShowSortedPriorityTaskList() {
@@ -64,6 +69,8 @@ export class TaskListComponent implements OnInit {
         this.taskList = sortedList;
         this.showList = true;
     });
+    if (this.taskList.length > 0) this.taskListNoCreated = false;
+    else this.taskListNoCreated = true;
   }
 
   subscribeToShowSortedStatusTaskList() {
@@ -72,6 +79,8 @@ export class TaskListComponent implements OnInit {
         this.taskList = sortedList;
         this.showList = true;
     });
+    if (this.taskList.length > 0) this.taskListNoCreated = false;
+    else this.taskListNoCreated = true;
   }
 
   subscribeToShowListOfTaskSearched (){
@@ -83,7 +92,9 @@ export class TaskListComponent implements OnInit {
         this.showList = true;
         this.taskListNoContent = false;
       }
-    })
+    });
+    if (this.taskList.length > 0) this.taskListNoCreated = false;
+    else this.taskListNoCreated = true;
   }
 
   deleteTask (task:Task){

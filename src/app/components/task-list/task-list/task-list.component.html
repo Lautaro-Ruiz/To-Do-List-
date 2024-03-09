@@ -1,7 +1,6 @@
 <section>
     <div *ngIf="showList">
         <div *ngIf="!refreshList">
-            <!-- <i class="gg-list"></i> -->
             <div class="card-body">
                 <div id="container-title-of-list">
                     <svg id="logo-list" xmlns="http://www.w3.org/2000/svg" height="35" width="35" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6">
@@ -23,10 +22,6 @@
                           </tr>
                     </thead>
                     
-                    <tbody *ngIf="taskListNoContent">
-                        <p class="text-dark font-medium fs-4">No se encuentran resultados...</p>
-                    </tbody>
-
                     <tbody *ngIf="!taskListNoContent">
                         <tr *ngFor="let task of taskList">
                             <td id="td-name" class="background-color-td-th">
@@ -87,6 +82,8 @@
                           </tr>              
                       </tbody>
                   </table>
+                  <p *ngIf="taskListNoContent" class="background-color-td-th font-medium fs-4 unexpected-result">No se encuentran resultados...</p>
+                  <p *ngIf="taskListNoCreated" class="background-color-td-th font-medium fs-4 unexpected-result"> Aun no se han creado tareas... </p>
               </div>
               </div>
         </div>

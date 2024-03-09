@@ -1,4 +1,5 @@
 .gg-instagram {
+    color: #737373;
     box-sizing: border-box;
     position: relative;
     display: block;
@@ -6,8 +7,8 @@
     border: 2px solid transparent;
     box-shadow: 0 0 0 2px;
     border-radius: 4px;
-    width: 20px;
-    height: 20px
+    width: 24px;
+    height: 24px
 }
 .gg-instagram::after,
 .gg-instagram::before {
@@ -19,15 +20,15 @@
 .gg-instagram::after {
     border: 2px solid;
     left: 3px;
-    width: 10px;
-    height: 10px;
+    width: 14px;
+    height: 14px;
     border-radius: 100%;
     top: 3px
 }
 .gg-instagram::before {
     border-radius: 3px;
-    width: 2px;
-    height: 2px;
+    width: 3px;
+    height: 3px;
     background: currentColor;
     right: 1px;
     top: 1px
@@ -65,3 +66,61 @@
 } 
 
 /* <i class="gg-google"></i> */
+
+.container-elements-footer{
+    display: grid;
+    padding: 1rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+
+.container-linkedin{
+    color: #737373;
+    text-align:left ;
+    justify-content: left;
+    justify-items: center;
+}
+
+#link-linkedin{
+    padding-left: 0.5rem;
+    color: #737373;
+    text-decoration: none;
+}
+
+.container-instagram{
+    padding-top: 0.7rem;
+    display: flex;
+    text-align:left ;
+    align-items:normal;
+    justify-items: center;
+}
+
+#link-instagram{
+    padding-left: 0.5rem;
+    color: #737373;
+    text-decoration: none;
+}
+
+.container-github{
+    padding-top: 0.7rem; 
+    display: flex;
+    text-align:left ;
+    justify-content: left;
+    align-items:normal;
+    justify-items: center;
+}
+
+#link-github{
+    padding-top: 0.3rem;
+    padding-left: 0.5rem;
+    color: #737373;
+    text-decoration: none;
+}
+
+#logo-github{
+    fill: #fff;
+    margin: 0%;
+    padding: 0%;
+}
