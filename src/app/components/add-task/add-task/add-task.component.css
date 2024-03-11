@@ -90,6 +90,17 @@
    transform: rotate(45deg)
 }
 
+.result{
+   width: 100%;
+   width: 22rem;
+   font-size: 1.2rem;
+   justify-content: center;
+   justify-items: center;
+   text-align: center;
+   background-color: #212121 !important;
+   color: #fff !important;
+}
+
 #section-button-add-task{
    margin-top: 0rem;
    padding-top: 0%;

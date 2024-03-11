@@ -71,6 +71,8 @@ export class TaskService {
   }
 
   async updateTask (task:Task): Promise<Boolean>{
+    console.log ('En metodo de service')
+    console.log (task)
     try {
       const response = await fetch (this.URL_deleteOrUpdateTask+task.taskId, {
         method: "PUT",

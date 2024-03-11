@@ -26,13 +26,13 @@
                         <tr *ngFor="let task of taskList">
                             <td id="td-name" class="background-color-td-th">
                                 <div class="ms-3">
-                                    <h5 class="mb-0 font-medium background-color-td-th">{{task.name}}</h5>
+                                    <h5 class="mb-0 font-medium background-color-td-th editable" id="name">{{task.name}}</h5>
                                 </div>
                             </td>
 
                             <td id="td-description" class="background-color-td-th">
                                 <div class="ms-3">
-                                    <h5 class="mb-0 font-medium background-color-td-th">{{task.description}}</h5>
+                                    <h5 class="mb-0 font-medium background-color-td-th editable" id="description">{{task.description}}</h5>
                                 </div>
                             </td>
         
@@ -82,8 +82,8 @@
                           </tr>              
                       </tbody>
                   </table>
-                  <p *ngIf="taskListNoContent" class="background-color-td-th font-medium fs-4 unexpected-result">No se encuentran resultados...</p>
-                  <p *ngIf="taskListNoCreated" class="background-color-td-th font-medium fs-4 unexpected-result"> Aun no se han creado tareas... </p>
+                  <div *ngIf="taskListNoContent" class="background-color-td-th font-medium fs-4 unexpected-result">No se encuentran resultados...</div>
+                  <div *ngIf="taskListNoCreated" class="background-color-td-th font-medium fs-4 unexpected-result"> Aun no se han creado tareas... </div>
               </div>
               </div>
         </div>

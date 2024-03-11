@@ -13,6 +13,7 @@ import { TaskService } from 'src/app/services/task-service';
 
 export class AddTaskComponent {
   showFormAddTask = false;
+  showResultOfCreateTask = false;
   result: String = ''
 
   group_addTask = new FormGroup ({
@@ -48,13 +49,15 @@ export class AddTaskComponent {
 
   showResult (flag: boolean){
     this.showFormAddTask = false;
+    this.showResultOfCreateTask = true;
     if (flag)
       this.result = 'La tarea se agrego con exito!'
     else
       this.result = 'Hubo un error al agregar la tarea...'
     setTimeout (()=>{
       this.result = '';
-    }, 2000);
+      this.showResultOfCreateTask = false;
+    }, 3000);
   }
 
   get name (){ return this.group_addTask.get('name') }

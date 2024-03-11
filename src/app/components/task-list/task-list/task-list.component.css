@@ -185,34 +185,41 @@ th{
 
 #th-name{
    text-align: center;
-   width: 8rem;
+   width: 11rem;
    height: 2rem;
+   word-wrap: break-word;
 }
 
 #td-name {
- width: 8rem;
+ width: auto;
+ max-width: 11rem;
  height: 2rem;
+ white-space: pre-wrap;
  word-wrap: break-word;
 }
 
 #th-description{
    text-align: center;
-   width: 22rem;
+   width: 24rem;
+   word-wrap: break-word;
 }
 
 #td-description{
    text-align: center;
-   width: 22rem;
+   width: auto;
+   max-width: 27.5rem;
+   white-space: pre-wrap; 
+   word-wrap: break-word;
 }
 
 #th-status{
    text-align: center;
-   width: 14rem;
+   width: 11rem;
 }
 
 #td-status{
    text-align: center;
-   width: 14rem;
+   width: 11rem;
 }
 
 .task-status-priority{
@@ -226,13 +233,13 @@ th{
 
 #th-priority{
    text-align: center;
-   width: 14rem;
+   width: 12rem;
 }
 
 #td-priority{
    background-color: #2a2a2a !important;
    text-align: center;
-   width: 14rem;
+   width: 12rem;
 }
 
 .edit-task{
@@ -269,12 +276,12 @@ th{
 
 #th-edit{
    text-align: center;
-   width: 10rem;
+   width: 6rem;
 }
 
 #td-edit{
    text-align: center;
-   width: 10rem;
+   width: 6rem;
 }
 
 #options-edit{
@@ -327,4 +334,5 @@ th{
    justify-items: center;
    text-align: center;
    background-color: #212121 !important;
+   padding-bottom: 0.5rem;
 }

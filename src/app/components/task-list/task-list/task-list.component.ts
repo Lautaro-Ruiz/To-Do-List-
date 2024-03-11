@@ -52,15 +52,16 @@ export class TaskListComponent implements OnInit {
     this.subscribeToShowSortedPriorityTaskList ();
     this.subscribeToShowSortedStatusTaskList();
     this.subscribeToShowListOfTaskSearched ();
+    console.log ('lista apenas entra a app')
+    console.log (this.taskList)
   }
 
   subscribeToShowTaskList (){
     this.taskService.tasks$.subscribe(tasks => {
       this.taskList = tasks;
       this.showList = true;
+      this.updateTaskListNoCreated();
     });
-    if (this.taskList.length > 0) this.taskListNoCreated = false;
-    else this.taskListNoCreated = true;
   }
 
   subscribeToShowSortedPriorityTaskList() {
@@ -68,9 +69,8 @@ export class TaskListComponent implements OnInit {
       if (sortedList.length > 0) 
         this.taskList = sortedList;
         this.showList = true;
+        this.updateTaskListNoCreated();
     });
-    if (this.taskList.length > 0) this.taskListNoCreated = false;
-    else this.taskListNoCreated = true;
   }
 
   subscribeToShowSortedStatusTaskList() {
@@ -78,28 +78,33 @@ export class TaskListComponent implements OnInit {
       if (sortedList.length > 0) 
         this.taskList = sortedList;
         this.showList = true;
+        this.updateTaskListNoCreated();
     });
-    if (this.taskList.length > 0) this.taskListNoCreated = false;
-    else this.taskListNoCreated = true;
   }
 
   subscribeToShowListOfTaskSearched (){
     this.listOfSearchedTask.listOfTaskSearched$.subscribe((updatedList) => {
       if (updatedList[0] != undefined && updatedList[0].name == "NO-CONTENT"){
         this.taskListNoContent = true;
+        setTimeout (()=>{
+          this.taskListNoContent = false;
+        }, 2000)
       } else if (updatedList && updatedList.length > 0) {
         this.taskList = updatedList;
         this.showList = true;
         this.taskListNoContent = false;
       }
     });
-    if (this.taskList.length > 0) this.taskListNoCreated = false;
-    else this.taskListNoCreated = true;
   }
 
   deleteTask (task:Task){
     this.taskIdToDelete = task.taskId;
     this.taskService.emitTaskDeleteRequested(task.taskId); 
+    if (this.taskList.length == 0) this.taskListNoCreated = true
+  }
+
+  updateTaskListNoCreated() {
+    this.taskListNoCreated = this.taskList.length === 0;
   }
 
   /* COMIENZA SECCION DE EDICION DE TAREAS */
@@ -111,7 +116,7 @@ export class TaskListComponent implements OnInit {
     this.originalTask = { ...task };
   }
 
-  saveChanges(task: Task): boolean {
+  async saveChanges(task: Task): Promise<boolean>  {
     const editedFields = ['name', 'description'];
     editedFields.forEach(fieldName => {
       const fieldElement = document.getElementById(`${fieldName}`);
@@ -124,26 +129,29 @@ export class TaskListComponent implements OnInit {
       }
     });
 
-    if (this.temporaryStatus && this.temporaryPriority){
+    if (this.temporaryStatus){  /* Si es distinto de null, hay que actualizar su valor */
+      console.log (this.taskList)
       task.status = this.temporaryStatus;
-      task.priority = this.temporaryPriority;
       this.temporaryStatus=null;
+      console.log (this.taskList)
+    }
+    if (this.temporaryPriority){ /* Si es distinto de null, hay que actualizar su valor */
+      task.priority = this.temporaryPriority;
       this.temporaryPriority=null;
-    }else{
-      console.error ("Ocurrio un error al asignar algunos campos como status o priority.");
-      return false;
     }
 
     try {
-      this.taskService.updateTask(task);
-    } catch (error) {
-      console.error (error)
-    }finally{
+      await this.taskService.updateTask(task);
+      console.log ('luego de update')
+      console.log (this.taskList)
       this.disableEditOptions();
       this.editingTask = null;
       this.originalTask = null;
+      return true;
+    } catch (error) {
+      console.error (error)
+      return false;
     }
-    return true;
   }
 
   refreshTaskList () {
@@ -160,6 +168,7 @@ export class TaskListComponent implements OnInit {
     }
     this.editingTask = null;
     this.originalTask = null;
+    this.taskIdToDelete = null; 
     this.refreshTaskList ();
   }
 

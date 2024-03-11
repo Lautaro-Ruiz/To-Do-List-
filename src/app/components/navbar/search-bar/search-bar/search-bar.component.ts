@@ -37,6 +37,12 @@ export class SearchBarComponent implements OnInit{
         return task.name.toLowerCase().includes(taskName.toLowerCase());
       })
     }
+    if (this.taskList.length === 0) { /* Si no se ha creado ninguna tarea */
+      let task = new Task();
+      task.name = "NO-CONTENT";
+      const array: Array<Task> = [task];
+      this.listOfSearchedTask.updateTaskList(array);
+    }
     if (this.searchControl.value !== '' && this.successList.length == 0){ /* Si esta buscando y no hay nada */
       let task = new Task();
       task.name = "NO-CONTENT";

@@ -48,6 +48,7 @@ body{
 }
 
 #search-bar{
+    color: #fff;
     border: 2px solid #0000;
     background: 
     linear-gradient(black, #101010 ) padding-box,
