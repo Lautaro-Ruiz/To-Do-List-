@@ -91,6 +91,7 @@
 }
 
 .result{
+   border-radius: 1rem;
    width: 100%;
    width: 22rem;
    font-size: 1.2rem;
@@ -119,7 +120,6 @@
    text-align: center;
    margin-left: 0.4rem;
    border-radius: 1rem;
-   border-width: 0.4rem;
    padding: 0.15rem;
    width: 9rem;
 }
@@ -159,7 +159,8 @@
          color: #fff;
          border:solid;
          border-radius: 2rem;
-         border-width: 1px;
+         border-width: 0px;
+         background-color: #2a2a2a !important;
       }
 
       #input-name::placeholder{
@@ -177,7 +178,7 @@
          padding: 0 4px 1px 6px;
          border-top-left-radius: 0.5rem;
          border-top-right-radius: 0.5rem;
-         background: #101010;
+         background-color: #2a2a2a !important;
          letter-spacing: 1px;
          border: 0px solid #fff;
          color: #fff;
@@ -192,7 +193,6 @@
       position: relative;
 
       #input-description{
-         background-color: #101010 !important;
          padding: 1rem 0.3rem 0.8rem 0.8rem;
          outline: none;
          background: transparent;
@@ -200,7 +200,8 @@
          color: #fff;
          border:solid;
          border-radius: 2rem;
-         border-width: 1px;
+         border-width: 0px;
+         background-color: #2a2a2a !important;
       }
 
       #input-description::placeholder{
@@ -214,11 +215,11 @@
          position: absolute;
          left: 0;
          font-size: 0.8em;
-         transform: translateX(22px) translateY(-11px);
+         transform: translateX(27px) translateY(-11px);
          padding: 0 4px 1px 6px;
          border-top-left-radius: 0.5rem;
          border-top-right-radius: 0.5rem;
-         background: #101010;
+         background-color: #2a2a2a !important;
          letter-spacing: 1px;
          border: 0px solid #fff;
          color: #fff;
@@ -273,25 +274,23 @@
    font-size: 1rem;
    text-align: center;
    font-weight: bold; 
-   background-color: #101010;
+   background-color: #2a2a2a !important;
    border-top-right-radius: 1rem;
    border-bottom-right-radius: 1rem;
    border-top-left-radius: 1rem;
    border-bottom-left-radius: 1rem;
-   border-color: #fff;
    text-align: center;
    color: #fff;
 }
 
 .select option {
    border: solid;
-   border-color: #fff;
    border-radius: 0.5rem;
    font-size: 0.9rem;
    text-align: center;
    color: #fff;
    font-weight: bold ;  
-   background-color:#101010; /* Cambia el color de fondo de las opciones */
+   background-color: #2a2a2a !important;
 }
 
 #container-opciones{

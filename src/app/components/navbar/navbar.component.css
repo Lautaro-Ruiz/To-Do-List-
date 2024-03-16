@@ -96,7 +96,7 @@
 #section-component-search-bar{
     border: 2px solid #0000;
     background:
-    linear-gradient(black, #101010) padding-box,
+    linear-gradient(#101010, #101010) padding-box,
     linear-gradient(rgb(167, 4, 58), white) border-box;
     border-width: 0.15rem;
 
@@ -104,7 +104,7 @@
     margin: 0%;
     display: grid;
     width: 100%;
-    grid-template-columns: 6% 88% 6%;
+    grid-template-columns: 10% 80% 10%;
     grid-template-areas:
     "container-home  search-bar  profile";
     
@@ -162,14 +162,19 @@
     }
 
     #container-profile{
+        position: relative;
         background-color: transparent;
         grid-area: profile;
+        display: grid;
+        height: 100%;
+        
         justify-items: center;
         justify-content: center;
         align-items: center;
         text-align: center;
         
         #profile{
+            margin-bottom: 0.2rem;
             background-color: #101010;
             border-radius: 2rem;
             border: 2px solid #0000;
@@ -193,5 +198,34 @@
         #profile:hover{
             box-shadow: 0 0 0.7rem rgba(255, 255, 255, 0.5);
         }
+
+        #options-profile{
+            background-color: transparent;
+            position: absolute;
+            top: calc(100% + 8px); /* ajusta la distancia desde la parte superior */
+            right: -2.2px; /* ajusta la distancia desde el borde derecho */
+            background-color: #101010;
+            border: solid #fff;
+            border-width: 0.15rem;
+        }
     }
 }
+
+.login-register { 
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem; /* Ajusta el espacio interno de los botones según sea necesario */
+    margin: 0.5rem;
+    border: 0px solid #0000;
+    background-color: #212121;
+    text-align: center;
+}
+
+#options-profile-container {
+    position: absolute; /* Ajusta el posicionamiento absoluto para que el contenedor de opciones de perfil se posicione con respecto al botón de perfil */
+    top: calc(100% + 5px); /* Ajusta la distancia desde la parte superior */
+    right: 0; /* Ajusta la distancia desde el borde derecho */
+}
+

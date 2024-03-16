@@ -12,6 +12,10 @@ import { PriorityListComponent } from './components/priority-list/priority-list/
 import { StatusListComponent } from './components/status-list/status-list/status-list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer/footer.component';
+import { RegisterAccountComponent } from './components/register-account/register-account/register-account.component';
+import { LoginComponent } from './components/login/login/login.component';
+import { ManageAccountsComponent } from './components/manage-accounts/manage-accounts/manage-accounts.component';
+import { HomeComponent } from './components/home/home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { FooterComponent } from './components/footer/footer/footer.component';
     PriorityListComponent,
     StatusListComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterAccountComponent,
+    LoginComponent,
+    ManageAccountsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

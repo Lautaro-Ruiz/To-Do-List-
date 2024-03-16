@@ -1,0 +1,32 @@
+<div class="container-register-form">
+    <form action="#" class="register-form" [formGroup]="register_group" (ngSubmit)="onSubmit()">
+        <div class="container-elements-form">
+            <div class="title-form">
+                <h5 id="register-account">Register Account</h5>
+            </div>
+
+            <label for="firstName" class="label">FirstName</label>
+            <input class="input" name="firstName" formControlName="firstname" type="text" placeholder="Firtname...">
+        
+            <label for="lastName" class="label">LastName</label>
+            <input class="input" name="lastName" type="text" placeholder="Lastname..." formControlName="lastname">
+        
+            <label for="email" class="label">Email</label>
+            <input class="input" name="email" formControlName="email" type="email" placeholder="Email...">
+        
+            <label for="password" class="label">Password</label>
+            <input class="input" name="password" formControlName="password" type="password" placeholder="Password...">
+
+            <div class="container-buttons">
+                <button class="options" id="register" [disabled]="!register_group.valid">Register</button>
+                <button class="options" id="cancel">Cancel</button>
+            </div>
+        </div>
+    </form>
+    <div class="errors">
+        <div *ngIf="register_group.controls['firstname'].touched && register_group.controls['firstname'].errors" class="error-message">First Name is required</div>
+        <div *ngIf="register_group.controls['lastname'].touched && register_group.controls['lastname'].errors" class="error-message">Last Name is required</div>
+        <div *ngIf="register_group.controls['email'].touched && register_group.controls['email'].errors" class="error-message">Invalid email format or Email is required</div>
+        <div *ngIf="register_group.controls['password'].touched && register_group.controls['password'].errors" class="error-message">Password must be at least 8 characters long</div>
+    </div>
+</div>

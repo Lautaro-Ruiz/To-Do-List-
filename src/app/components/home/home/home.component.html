@@ -1,0 +1,41 @@
+<header>
+    <nav>
+        <app-navbar id="navbar" [showSearchBar]="showSearchBar"></app-navbar>
+    </nav>
+</header>
+
+<body id="container">
+    <main id="main" >
+        <div class="grid-1" id="container-component-add-task">
+            <app-add-task></app-add-task>
+        </div>
+    </main>
+    
+    <div class="grid-3" id="container-component-task-list">
+        <app-task-list></app-task-list>
+    </div>
+
+    <aside id="aside" class="grid-2">
+        <div id="container-of-title">
+            <div id="container-title-filters" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-filter">
+                    <path d="M3 6h18"/><path d="M7 12h10"/><path d="M10 18h4"/>
+                </svg>
+                <h3 class="font-medium fs-4" id="title-filters">Filters</h3>
+            </div>
+        </div>
+        <div>
+            <h5 class="card-title" id="sort-by">Sort By</h5>
+        </div>
+        <div id="container-filters-buttons">
+            <div id="sort-buttons">
+                <app-priority-list></app-priority-list>
+                <app-status-list></app-status-list>
+            </div>
+        </div>
+    </aside>
+</body>
+
+<footer id="footer">
+    <app-footer class="footer-component"></app-footer>
+</footer>

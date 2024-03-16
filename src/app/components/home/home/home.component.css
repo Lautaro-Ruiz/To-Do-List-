@@ -1,0 +1,158 @@
+*{
+    background-color: #101010;
+}
+
+body{
+    height: 100%;
+    padding-bottom: 10.5rem;
+}
+
+.gg-menu-grid-o {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs,1));
+    width: 16px;
+    height: 16px;
+   }
+   
+   .gg-menu-grid-o::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: currentColor;
+    box-shadow:
+    0 6px 0,
+    6px 6px 0,
+    12px 6px 0,
+    6px 12px 0,
+    12px 12px 0,
+    6px 0 0,
+    12px 0 0,
+    0 12px 0
+    ;
+    border-radius: 22px;
+   } 
+
+#navbar{
+    background-color: rgb(3, 3, 3);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filters{
+    display: block;
+}
+
+#main{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#container-component-add-task{
+    margin-top: 0%;
+}
+
+#aside{
+    height: 100%;
+}
+
+#container{
+    margin-top: 0%;
+    padding-top:0%;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 10% 90%;
+    grid-template-areas:
+    "filtro  tareas"
+    "filtro  filtros";
+    
+    justify-content: center;
+
+    align-content: center;
+
+    .grid-1{
+        margin-top: 0rem;
+        padding-top: 0%;
+        padding-left: 0.5rem;
+        grid-area: tareas;
+        display: block;
+        justify-content: center;
+    }
+    
+    .grid-2{
+        align-items: center;
+        padding-top: 1rem;
+        grid-area: filtro;
+    }
+}
+
+#title-filters{
+    color: #fff;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding-top: 0%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    padding-left: 0.2rem;
+}
+
+#container-title-filters{
+    color: #fff;
+    margin-top: 0%;
+    padding-top: 0%;
+    display: inline-flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+#container-of-title{
+    text-align: center;
+}
+
+#sort-buttons{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#sort-by{
+    color: #fff;
+    padding-top: 0.5rem;
+    padding-left: 0.2rem;
+}
+
+#container-filters-buttons{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    padding: 2rem;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+}
+
+#footer{
+    border: 2px solid #0000;
+    background:
+    linear-gradient(black, #101010) padding-box,
+    linear-gradient(rgb(167, 4, 58), white) border-box;
+    border-width: 0.15rem;
+    border-bottom-width: 0rem;
+    border-left-width: 0rem;
+    border-right-width: 0rem ;
+    justify-content: center;
+    text-align: center;
+}

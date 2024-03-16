@@ -55,7 +55,7 @@ body{
     linear-gradient(rgb(167, 4, 58), white) border-box;
     background-color: #101010 !important;
     border-radius: 1rem;
-    border-width: 0.2rem;
+    border-width: 0.15rem;
     padding: 0.1rem;
     width: 16.5rem;
 }
